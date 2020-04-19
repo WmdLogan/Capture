@@ -1,0 +1,3 @@
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Capture.dir
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/rebuild_cache.dir
