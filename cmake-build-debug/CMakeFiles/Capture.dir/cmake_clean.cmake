@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Capture.dir/main.c.obj"
+  "CMakeFiles/Capture.dir/capture.c.obj"
   "Capture.exe"
   "Capture.exe.manifest"
   "Capture.pdb"

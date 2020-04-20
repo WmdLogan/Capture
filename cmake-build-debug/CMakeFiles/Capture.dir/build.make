@@ -56,27 +56,27 @@ include CMakeFiles/Capture.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Capture.dir/flags.make
 
-CMakeFiles/Capture.dir/main.c.obj: CMakeFiles/Capture.dir/flags.make
-CMakeFiles/Capture.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Capture.dir/main.c.obj"
-	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Capture.dir\main.c.obj   -c D:\CLionProjects\Capture\main.c
+CMakeFiles/Capture.dir/capture.c.obj: CMakeFiles/Capture.dir/flags.make
+CMakeFiles/Capture.dir/capture.c.obj: ../capture.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Capture.dir/capture.c.obj"
+	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Capture.dir\capture.c.obj   -c D:\CLionProjects\Capture\capture.c
 
-CMakeFiles/Capture.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Capture.dir/main.c.i"
-	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\CLionProjects\Capture\main.c > CMakeFiles\Capture.dir\main.c.i
+CMakeFiles/Capture.dir/capture.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Capture.dir/capture.c.i"
+	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\CLionProjects\Capture\capture.c > CMakeFiles\Capture.dir\capture.c.i
 
-CMakeFiles/Capture.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Capture.dir/main.c.s"
-	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\CLionProjects\Capture\main.c -o CMakeFiles\Capture.dir\main.c.s
+CMakeFiles/Capture.dir/capture.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Capture.dir/capture.c.s"
+	D:\Mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\CLionProjects\Capture\capture.c -o CMakeFiles\Capture.dir\capture.c.s
 
 # Object files for target Capture
 Capture_OBJECTS = \
-"CMakeFiles/Capture.dir/main.c.obj"
+"CMakeFiles/Capture.dir/capture.c.obj"
 
 # External object files for target Capture
 Capture_EXTERNAL_OBJECTS =
 
-Capture.exe: CMakeFiles/Capture.dir/main.c.obj
+Capture.exe: CMakeFiles/Capture.dir/capture.c.obj
 Capture.exe: CMakeFiles/Capture.dir/build.make
 Capture.exe: CMakeFiles/Capture.dir/linklibs.rsp
 Capture.exe: CMakeFiles/Capture.dir/objects1.rsp

@@ -1,3 +1,6 @@
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/get_interface.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Capture.dir
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Mul_Cap.dir
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Ethernet.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/rebuild_cache.dir

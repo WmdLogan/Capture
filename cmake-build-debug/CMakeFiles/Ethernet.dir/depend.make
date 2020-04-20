@@ -1,2 +1,2 @@
-# Empty dependencies file for Capture.
+# Empty dependencies file for Ethernet.
 # This may be replaced when dependencies are built.
