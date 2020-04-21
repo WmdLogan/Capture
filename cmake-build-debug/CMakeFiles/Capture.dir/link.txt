@@ -1,3 +1,0 @@
-"D:\Program Files\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Capture.dir/objects.a
-D:\Mingw\bin\ar.exe cr CMakeFiles\Capture.dir/objects.a @CMakeFiles\Capture.dir\objects1.rsp
-D:\Mingw\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Capture.dir/objects.a -Wl,--no-whole-archive  -o Capture.exe -Wl,--out-implib,libCapture.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Capture.dir\linklibs.rsp

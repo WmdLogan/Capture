@@ -1,3 +1,1 @@
-"D:\Program Files\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Mul_Cap.dir/objects.a
-D:\Mingw\bin\ar.exe cr CMakeFiles\Mul_Cap.dir/objects.a @CMakeFiles\Mul_Cap.dir\objects1.rsp
-D:\Mingw\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Mul_Cap.dir/objects.a -Wl,--no-whole-archive  -o Mul_Cap.exe -Wl,--out-implib,libMul_Cap.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Mul_Cap.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/Mul_Cap.dir/Mul_Cap.c.o  -o Mul_Cap  -lpcap 

@@ -1,5 +1,4 @@
 #include "pcap.h"
-
 void packet_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char * packet_content){
     static int packet_number = 1;
     printf("The %d packet is captured. \n", packet_number);

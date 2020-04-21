@@ -24,6 +24,8 @@ void main() {
     struct bpf_program bpf_filter;
     char bpf_filter_string[] = "ip";
     //get interface
+    //net_interface = pcap_findalldevs(&pcap_handle, error_content);
+
     net_interface = pcap_lookupdev(error_content);
     pcap_lookupnet(net_interface, &net_ip, &net_mask, error_content);
     //open interface

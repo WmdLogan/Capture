@@ -8,193 +8,275 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ip_Capture">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Ip_Capture" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ip_Capture"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ip_Capture/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Ip_Capture" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ip_Capture/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Mul_Ethernet">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Mul_Ethernet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Ethernet"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Mul_Ethernet/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Mul_Ethernet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Ethernet/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="get_interface">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/get_interface.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/get_interface" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 get_interface"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 get_interface"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="get_interface/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/get_interface.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/get_interface" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 get_interface/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Capture">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Capture.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Capture"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Capture/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Capture.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Capture/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Mul_Cap">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Mul_Cap.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Cap"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Mul_Cap/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Mul_Cap.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Cap/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Ethernet">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Ethernet.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ethernet"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Ethernet/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Ethernet.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ethernet/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 get_interface/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ethernet">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Ethernet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ethernet"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Ethernet/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Ethernet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Ethernet/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Capture">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Capture" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Capture"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Capture/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Capture" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Capture/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Mul_Cap">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Mul_Cap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Cap"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Mul_Cap/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Mul_Cap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Mul_Cap/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/CLionProjects/Capture/Mul_Cap.c">
+		<Unit filename="/home/logan/CLionProjects/Capture/Ip_Capture.c">
+			<Option target="Ip_Capture"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/Ip_Capture.h">
+			<Option target="Ip_Capture"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/Mul_Cap.c">
 			<Option target="Mul_Cap"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/capture.c">
+		<Unit filename="/home/logan/CLionProjects/Capture/Mul_Ethernet.c">
+			<Option target="Ip_Capture"/>
+			<Option target="Mul_Ethernet"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/capture.c">
 			<Option target="Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/ethernet.c">
+		<Unit filename="/home/logan/CLionProjects/Capture/ethernet.c">
 			<Option target="Ethernet"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/get_interface.c">
+		<Unit filename="/home/logan/CLionProjects/Capture/get_interface.c">
 			<Option target="get_interface"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/CMakeLists.txt">
+		<Unit filename="/home/logan/CLionProjects/Capture/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

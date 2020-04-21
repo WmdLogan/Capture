@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Ethernet.dir/ethernet.c.obj"
-  "Ethernet.exe"
-  "Ethernet.exe.manifest"
+  "CMakeFiles/Ethernet.dir/ethernet.c.o"
+  "Ethernet"
   "Ethernet.pdb"
-  "libEthernet.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
