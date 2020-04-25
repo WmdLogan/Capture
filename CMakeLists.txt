@@ -4,10 +4,9 @@ project(Capture C)
 set(CMAKE_C_STANDARD 99)
 
 link_libraries(pcap)
+link_libraries(ccl)
 
-add_executable(get_interface get_interface.c)
-add_executable(Capture capture.c)
-add_executable(Mul_Cap Mul_Cap.c)
-add_executable(Ethernet ethernet.c)
-add_executable(Mul_Ethernet Mul_Ethernet.c)
-add_executable(Ip_Capture Mul_Ethernet.c Ip_Capture.h Ip_Capture.c)
+add_executable(Tcp_Capture Capture.c Ethernet_Cap.h Ethernet_Cap.c Ip_Capture.h Ip_Capture.c Tcp_Capture.c Tcp_Capture.h
+        Udp_Capture.c Udp_Capture.h Icmp_Capture.c Icmp_Capture.h Arp_Capture.c Arp_Capture.h)
+add_executable(File Save_File.c Save_File.h)
+add_executable(test Configure.c Configure.h)
