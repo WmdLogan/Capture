@@ -208,6 +208,7 @@ Configure.obj: Configure.c.obj
 
 # target to build an object file
 Configure.c.obj:
+	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.obj
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/Configure.c.obj
 .PHONY : Configure.c.obj
 
@@ -217,6 +218,7 @@ Configure.i: Configure.c.i
 
 # target to preprocess a source file
 Configure.c.i:
+	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.i
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/Configure.c.i
 .PHONY : Configure.c.i
 
@@ -226,6 +228,7 @@ Configure.s: Configure.c.s
 
 # target to generate assembly for a file
 Configure.c.s:
+	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.s
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/Configure.c.s
 .PHONY : Configure.c.s
 

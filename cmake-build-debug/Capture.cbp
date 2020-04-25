@@ -156,9 +156,11 @@
 			<Option target="Tcp_Capture"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Configure.c">
+			<Option target="Tcp_Capture"/>
 			<Option target="test"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Configure.h">
+			<Option target="Tcp_Capture"/>
 			<Option target="test"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Ethernet_Cap.c">

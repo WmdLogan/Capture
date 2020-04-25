@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Tcp_Capture.dir/Arp_Capture.c.obj"
   "CMakeFiles/Tcp_Capture.dir/Capture.c.obj"
+  "CMakeFiles/Tcp_Capture.dir/Configure.c.obj"
   "CMakeFiles/Tcp_Capture.dir/Ethernet_Cap.c.obj"
   "CMakeFiles/Tcp_Capture.dir/Icmp_Capture.c.obj"
   "CMakeFiles/Tcp_Capture.dir/Ip_Capture.c.obj"

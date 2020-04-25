@@ -1,5 +1,6 @@
 #include "Ethernet_Cap.h"
 #include "Arp_Capture.h"
+#include <string.h>
 void arp_protocol_packet_callback(u_char *argument,const struct pcap_pkthdr *packet_header,const u_char *packet_content)
 {
 	struct arp_header *arp_protocol;
@@ -36,7 +37,7 @@ void arp_protocol_packet_callback(u_char *argument,const struct pcap_pkthdr *pac
 	printf("%02x:%02x:%02x:%02x:%02x:%02x:\n",*mac_string,*(mac_string+1),*(mac_string+2),*(mac_string+3),*(mac_string+4),*(mac_string+5));
 	memcpy((void *)&source_ip_address,(void *)&arp_protocol->arp_source_ip_address,sizeof(struct in_addr));
 	printf("Source IP Address :%s\n",inet_ntoa(source_ip_address));
-	printf("Ethernet Source Address is : \n");
+	printf("Ethernet Destination Address is : \n");
 	mac_string=arp_protocol->arp_destination_ethernet_address;
 	printf("%02x:%02x:%02x:%02x:%02x:%02x:\n",*mac_string,*(mac_string+1),*(mac_string+2),*(mac_string+3),*(mac_string+4),*(mac_string+5));
 	memcpy((void *)&destination_ip_address,(void *)&arp_protocol->arp_destination_ip_address,sizeof(struct in_addr));
