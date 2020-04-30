@@ -1,8 +1,7 @@
 #include "pcap.h"
 #include "Ethernet_Cap.h"
 #include "Ip_Capture.h"
-#include "Udp_Capture.h"
-#include "Icmp_Capture.h"
+#include "Arp_Capture.h"
 
 void ethernet_protocol_packet_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
                                        const u_char *packet_content) {
@@ -30,7 +29,7 @@ void ethernet_protocol_packet_callback(u_char *argument, const struct pcap_pkthd
      mac_string = ethernet_protocol->ether_dhost;
      printf("%02x: %02x: %02x: %02x: %02x: %02x: \n", *mac_string, *(mac_string + 1), *(mac_string + 2), *(mac_string + 3),
             *(mac_string + 4), *(mac_string + 5));
-
+    printf("length:%d\n", packet_header->len);
      switch (ethernet_type) {
          case 0x0800:
              printf("The Network Layer is IP Protocol\n");
@@ -38,11 +37,10 @@ void ethernet_protocol_packet_callback(u_char *argument, const struct pcap_pkthd
              break;
          case 0x0806:
              printf("The Network Layer is ARP Protocol\n");
-             udp_protocol_packet_callback(argument, packet_header, packet_content);
+             arp_protocol_packet_callback(argument, packet_header, packet_content);
              break;
          case 0x8035:
              printf("The Network Layer is RARP Protocol\n");
-             icmp_protocol_packet_callback(argument, packet_header, packet_content);
              break;
          default:
              break;

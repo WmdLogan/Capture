@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/get_time.dir/Get_Update_Time.c.o  -o get_time  -lpcap -lccl 

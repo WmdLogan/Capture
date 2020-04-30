@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Include/Configure.h
+ccl/ccl.h
+-
+
+../Include/Ethernet_Cap.h
+pcap.h
+../Include/pcap.h
+
+/home/logan/CLionProjects/Capture/Capture.h
+pcap.h
+/home/logan/CLionProjects/Capture/pcap.h
+
+/home/logan/CLionProjects/Capture/main.c
+pcap.h
+/home/logan/CLionProjects/Capture/pcap.h
+Ethernet_Cap.h
+/home/logan/CLionProjects/Capture/Ethernet_Cap.h
+ccl/ccl.h
+/home/logan/CLionProjects/Capture/ccl/ccl.h
+Configure.h
+/home/logan/CLionProjects/Capture/Configure.h
+string.h
+/home/logan/CLionProjects/Capture/string.h
+Capture.h
+/home/logan/CLionProjects/Capture/Capture.h
+sys/stat.h
+-
+

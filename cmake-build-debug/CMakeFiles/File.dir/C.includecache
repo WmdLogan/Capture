@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/logan/CLionProjects/Capture/Save_File.c
+Save_File.h
+/home/logan/CLionProjects/Capture/Save_File.h
+pcap.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/logan/CLionProjects/Capture/Save_File.h
+

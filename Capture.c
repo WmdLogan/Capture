@@ -1,49 +1,93 @@
-#include "pcap.h"
+#include "Capture.h"
 #include "Ethernet_Cap.h"
-#include "ccl/ccl.h"
+#include "Ip_Capture.h"
+#include "Arp_Capture.h"
+#include "Tcp_Capture.h"
+#include "Udp_Capture.h"
+#include "Icmp_Capture.h"
 #include "Configure.h"
 #include "string.h"
-int main() {
-    pcap_t *pcap_handle;
-    char error_content[PCAP_ERRBUF_SIZE];
-    struct bpf_program bpf_filter;
-    char bpf_filter_string[] = "tcp port 80 && src 192.168.2.101 ";
-    bpf_u_int32 net_mask;
-    bpf_u_int32 net_ip;
-    struct ccl_t re = configure();
-    const struct ccl_pair_t *iter;
-    while ((iter = ccl_iterate(&re)) != 0) {
-        if (strcmp(iter->key, "net_interface") == 0) {
-            printf("%s: %s\n", iter->key, iter->value);
-            if(strcmp(iter->value, "") != 0){ //value is not null
-                pcap_lookupnet(iter->value, &net_ip, &net_mask, error_content);
-                pcap_handle = pcap_open_live(iter->value, BUFSIZ, 1, 1, error_content);
 
-            } else{
-                pcap_lookupnet("ens33", &net_ip, &net_mask, error_content);
-                pcap_handle = pcap_open_live("ens33", BUFSIZ, 1, 1, error_content);
+
+void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
+    //check configure update
+    stat("/home/logan/CLionProjects/Capture/mytest.conf", &buf1);
+    printf("\n\n\n\ncall_back :文件修改时间: %ld\n", buf1.st_ctime);
+    if (buf1.st_mtime != update_time) {
+        printf("config update!!!\n");
+        struct ccl_t re = configure();
+        const struct ccl_pair_t *iter;
+        update_time = buf1.st_mtime;
+        while ((iter = ccl_iterate(&re)) != 0) {
+            if (strcmp(iter->key, "source_address") == 0) {
+                strcpy(src_add, iter->value);
+            } else if (strcmp(iter->key, "destination_address") == 0) {
+                strcpy(des_add, iter->value);
+            } else if (strcmp(iter->key, "source_port") == 0) {
+                strcpy(s_port, iter->value);
+            } else if (strcmp(iter->key, "destination_port") == 0) {
+                strcpy(d_port, iter->value);
             }
-
-        } else if (strcmp(iter->key, "source_address") == 0) {
-            printf("%s: %s\n", iter->key, iter->value);
-        } else if (strcmp(iter->key, "source_port") == 0) {
-            printf("%s: %s\n", iter->key, iter->value);
-        } else if (strcmp(iter->key, "destination_address") == 0) {
-            printf("%s: %s\n", iter->key, iter->value);
-        } else if (strcmp(iter->key, "destination_port") == 0) {
-            printf("%s: %s\n", iter->key, iter->value);
-        } else { continue; }
-
+        }
     }
-    ccl_release(&re);
-    //compile and set bpf rules
-    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
-    pcap_setfilter(pcap_handle, &bpf_filter);
-    if (pcap_datalink(pcap_handle) != DLT_EN10MB)
-        return 0;
-    //-1 means endless capture
-    pcap_loop(pcap_handle, -1, ethernet_protocol_packet_callback, NULL);
-    pcap_close(pcap_handle);
-    return 0;
-}
+    printf("s_add:%s\n", src_add);
+    printf("d_add:%s\n", des_add);
+    printf("s_port:%s\n", s_port);
+    printf("d_port:%s\n", d_port);
+    //Ethernet
+    u_short ethernet_type;
+    struct ether_header *ethernet_protocol;
+    static int packet_number = 1;
+    printf("------------------*****------------------\n");
+    printf("---------- Ethernet protocol (Link Layer) ----------\n");
+    printf("The %d Ethernet packet is captured.\n", packet_number);
+    //get ethernet protocol data
+    ethernet_protocol = (struct ether_header *) packet_content;
+    //get type
+    ethernet_type = ntohs(ethernet_protocol->ether_type);
+    switch (ethernet_type) {
+        case 0x0800:
+            printf("---------- IP Protocol (Network Layer) ----------\n");
+            struct ip_header *ip_protocol;
+            ip_protocol = (struct ip_header *) (packet_content + 14);
+            printf("Source address: %s\n", inet_ntoa(ip_protocol->ip_source_address));
+            printf("Destination address: %s\n", inet_ntoa(ip_protocol->ip_destination_address));
+            //filter ip address
+            if ((strcmp(inet_ntoa(ip_protocol->ip_source_address), src_add) == 0 || strcmp(src_add, "") == 0) &&
+                (strcmp(inet_ntoa(ip_protocol->ip_destination_address), des_add) == 0 || strcmp(des_add, "") == 0) ) {
+                printf("IP Qualified!!!!!\n");
+                tcp_protocol_packet_callback(argument, packet_header, packet_content);
+            } else {
+                break;
+            }
+//            switch (ip_protocol->ip_protocol) {
+//                case 6:
+//                    printf("The Transport Layer Protocol is TCP\n");
+//                    tcp_protocol_packet_callback(argument, packet_header, packet_content);
+//                    break;
+//                case 17:
+//                    printf("The Transport Layer Protocol is UDP\n");
+//                    udp_protocol_packet_callback(argument, packet_header, packet_content);
+//                    break;
+//                case 1:
+//                    printf("The Transport Layer Protocol is ICMP\n");
+//                    icmp_protocol_packet_callback(argument, packet_header, packet_content);
+//                    break;
+//                default:
+//                    break;
+//            }
+            break;
+        case 0x0806:
+            printf("The Network Layer is ARP Protocol\n");
+            //          arp_protocol_packet_callback(argument, packet_header, packet_content);
+            break;
+        case 0x8035:
+            printf("The Network Layer is RARP Protocol\n");
+            break;
+        default:
+            break;
+    }
+    printf("------------------*****------------------\n");
+    packet_number++;
 
+}

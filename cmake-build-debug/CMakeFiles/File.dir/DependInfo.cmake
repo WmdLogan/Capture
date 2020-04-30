@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/CLionProjects/Capture/Save_File.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/File.dir/Save_File.c.obj"
+  "/home/logan/CLionProjects/Capture/Save_File.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/File.dir/Save_File.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../Include"
   )
 
 # Targets to which this target links.
