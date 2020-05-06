@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "Configure.h"
-#include "Tcp_Capture.h"
 #include "Capture.h"
 #include "string.h"
 
@@ -50,16 +49,28 @@ void tcp_protocol_packet_callback(u_char *argument, const struct pcap_pkthdr *pa
     if ((ntohs(tcp_protocol->tcp_source_port) == atoi(s_port) || strcmp(s_port, "") == 0) &&
         (ntohs(tcp_protocol->tcp_source_port) == atoi(d_port) || strcmp(des_add, "") == 0)) {
         printf("Port Qualified!!!!!\n");
+/*
+        */
+/*open pcap write output file*//*
 
-        /*open pcap write output file*/
-        pcap_dumper_t *out_pcap;
-        out_pcap = pcap_dump_open(pcap_handle, "/home/logan/pack.cap");
+//        pcap_dumper_t *out_pcap;
+//        out_pcap = pcap_dump_open(pcap_handle, "/home/logan/pack.cap");
         pcap_dump((u_char *) out_pcap, packet_header, packet_content);
         printf("Received Packet Size: %d\n", packet_header->len);
-        /*flush buff*/
-        pcap_dump_flush(out_pcap);
+        file_size += packet_header->len;
+        if ( (buf2.st_size + packet_header->len + 16) < 800) {
+            pcap_dump_flush(out_pcap);
 
-        pcap_dump_close(out_pcap);
+        }
+        */
+/*flush buff*//*
+
+        printf("file_size = %d\n", file_size);
+        stat("/home/logan/pack.cap", &buf2);
+        printf("文件size: %ld\n", buf2.st_size);
+       // pcap_dump_close(out_pcap);
+
+*/
 
     }
 }

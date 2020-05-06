@@ -37,6 +37,44 @@
 					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="MAIN">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/MAIN" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/logan/CLionProjects/Capture/Include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 MAIN"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MAIN/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/MAIN" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/logan/CLionProjects/Capture/Include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 MAIN/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="Tcp_Capture">
 				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/Tcp_Capture" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
@@ -108,6 +146,44 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 get_time/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="check">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/check" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/logan/CLionProjects/Capture/Include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 check"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="check/fast">
+				<Option output="/home/logan/CLionProjects/Capture/cmake-build-debug/check" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/logan/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/logan/CLionProjects/Capture/Include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 check/fast"/>
 					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/logan/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -234,11 +310,9 @@
 		<Unit filename="/home/logan/CLionProjects/Capture/Capture.c">
 			<Option target="Cap"/>
 		</Unit>
-		<Unit filename="/home/logan/CLionProjects/Capture/Capture.h">
-			<Option target="Cap"/>
-		</Unit>
 		<Unit filename="/home/logan/CLionProjects/Capture/Configure.c">
 			<Option target="Tcp_Capture"/>
+			<Option target="check"/>
 			<Option target="Cap"/>
 			<Option target="test"/>
 		</Unit>
@@ -250,6 +324,9 @@
 		</Unit>
 		<Unit filename="/home/logan/CLionProjects/Capture/Icmp_Capture.c">
 			<Option target="Tcp_Capture"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/Include/Capture.h">
+			<Option target="check"/>
 		</Unit>
 		<Unit filename="/home/logan/CLionProjects/Capture/Ip_Capture.c">
 			<Option target="Tcp_Capture"/>
@@ -263,6 +340,14 @@
 		</Unit>
 		<Unit filename="/home/logan/CLionProjects/Capture/Udp_Capture.c">
 			<Option target="Tcp_Capture"/>
+			<Option target="Cap"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/cap_main.c">
+			<Option target="MAIN"/>
+		</Unit>
+		<Unit filename="/home/logan/CLionProjects/Capture/check_update.c">
+			<Option target="check"/>
+			<Option target="Cap"/>
 		</Unit>
 		<Unit filename="/home/logan/CLionProjects/Capture/main.c">
 			<Option target="Tcp_Capture"/>

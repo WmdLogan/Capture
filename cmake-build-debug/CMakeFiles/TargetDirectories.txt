@@ -1,7 +1,0 @@
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Tcp_Capture.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/get_time.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Cap.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/File.dir
-/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/test.dir
