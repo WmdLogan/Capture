@@ -3,11 +3,19 @@
 #include <pcap.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+struct stat buf2;
+pcap_dumper_t *out_pcap;
 
 void processPacket(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *packet)
 {
+    stat("/home/logan/pack.cap", &buf2);
+    printf("文件size: %ld\n", buf2.st_size);
     pcap_dump(arg, pkthdr, packet);
+    pcap_dump_flush(out_pcap);
     printf("Received Packet Size: %d\n", pkthdr->len);
+    stat("/home/logan/pack.cap", &buf2);
+    printf("文件size: %ld\n", buf2.st_size);
 }
 
 int main() {
@@ -31,11 +39,10 @@ int main() {
     }
 
     /*open pcap write output file*/
-    pcap_dumper_t *out_pcap;
-    out_pcap = pcap_dump_open(pcap_handle, "pack.cap");
+    out_pcap = pcap_dump_open(pcap_handle, "/home/logan/pack.cap");
 
     /*Loop forever & call processPacket() for every received packet.*/
-    pcap_loop(pcap_handle, 20, processPacket, (u_char *) out_pcap);
+    pcap_loop(pcap_handle, 5, processPacket, (u_char *) out_pcap);
 
     /*flush buff*/
     pcap_dump_flush(out_pcap);

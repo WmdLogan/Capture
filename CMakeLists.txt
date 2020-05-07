@@ -12,7 +12,7 @@ add_executable(File Save_File.c)
 add_executable(test Configure.c)
 add_executable(get_time Get_Update_Time.c)
 add_executable(Cap main.c Capture Capture.c Configure.c Tcp_Capture.c Udp_Capture.c check_update.c)
-add_executable(MAIN cap_main.c)
 add_executable(check check_update.c Include/Capture.h Configure.c)
+add_executable(separate separate_check.c Configure.c)
 
 include_directories(Include)

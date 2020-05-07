@@ -4,17 +4,18 @@
 #include "string.h"
 #include "pthread.h"
 #include "check_update.h"
+#include <stdlib.h>
 
 int main() {
     pthread_t check;
-    pthread_create(&check, NULL, (void *)check_update, NULL);
+    pthread_create(&check, NULL, (void *) check_update, NULL);
     int up_key = 0;
     char error_content[PCAP_ERRBUF_SIZE];
     struct bpf_program bpf_filter;
     char bpf_filter_string[] = "";
     bpf_u_int32 net_mask;
     bpf_u_int32 net_ip;
-Restart:
+    Restart:
 //restart
     if (up_key == 1) {
         if (strcmp(net_interface, "") != 0) { //value is not null
@@ -49,6 +50,10 @@ Restart:
                 strcpy(s_port, iter->value);
             } else if (strcmp(iter->key, "destination_port") == 0) {
                 strcpy(d_port, iter->value);
+            } else if (strcmp(iter->key, "file_size") == 0) {
+                strcpy(file_size, iter->value);
+            } else if (strcmp(iter->key, "save_path") == 0) {
+                strcpy(path, iter->value);
             }
         }
         ccl_release(&re);
@@ -59,7 +64,7 @@ Restart:
     pcap_setfilter(pcap_handle, &bpf_filter);
     if (pcap_datalink(pcap_handle) != DLT_EN10MB)
         return 0;
-    out_pcap = pcap_dump_open(pcap_handle, "/home/logan/pack.cap");
+//    out_pcap = pcap_dump_open(pcap_handle, "/home/logan/pack.cap");
 
     //-1 means endless capture
     pcap_loop(pcap_handle, -1, capture_callback, NULL);

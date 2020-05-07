@@ -1,7 +1,7 @@
 
 #include "check_update.h"
 
-void  check_update() {
+void check_update() {
 //获得文件状态信息
     result = stat("/home/logan/CLionProjects/Capture/mytest.conf", &buf);
     int flag = 1;
@@ -34,6 +34,10 @@ void  check_update() {
                     strcpy(s_port, iter->value);
                 } else if (strcmp(iter->key, "destination_port") == 0) {
                     strcpy(d_port, iter->value);
+                } else if (strcmp(iter->key, "file_size") == 0) {
+                    strcpy(file_size, iter->value);
+                } else if (strcmp(iter->key, "save_path") == 0) {
+                    strcpy(path, iter->value);
                 }
             }
             printf("配置s_add为:%s\n", src_add);
@@ -41,6 +45,8 @@ void  check_update() {
             printf("配置s_port为:%s\n", s_port);
             printf("配置d_port为:%s\n", d_port);
             printf("配置net_interface为%s\n", net_interface);
+            printf("配置file_size为%s\n", file_size);
+            printf("配置save_path为%s\n", path);
         }
     }
 }
