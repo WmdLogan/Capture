@@ -93,44 +93,6 @@
 					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Cap">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Cap.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/CLionProjects/Capture/Include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cap"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Cap/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Cap.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/CLionProjects/Capture/Include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cap/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="File">
 				<Option output="D:/CLionProjects/Capture/cmake-build-debug/File.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
@@ -164,44 +126,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 File/fast"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="test">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/CLionProjects/Capture/Include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
-					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="test/fast">
-				<Option output="D:/CLionProjects/Capture/cmake-build-debug/test.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/CLionProjects/Capture/Include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 test/fast"/>
 					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -250,6 +174,44 @@
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Final_Cap">
+				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Final_Cap.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/CLionProjects/Capture/Include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Cap"/>
+					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Final_Cap/fast">
+				<Option output="D:/CLionProjects/Capture/cmake-build-debug/Final_Cap.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/CLionProjects/Capture/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/CLionProjects/Capture/Include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Cap/fast"/>
 					<CompileFile command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="D:/Mingw/bin/mingw32-make.exe -f &quot;D:/CLionProjects/Capture/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -311,23 +273,21 @@
 			<Option target="Tcp_Capture"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Capture.c">
-			<Option target="Cap"/>
+			<Option target="Final_Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Capture.h">
-			<Option target="Cap"/>
+			<Option target="Final_Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Configure.c">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
-			<Option target="test"/>
 			<Option target="check"/>
+			<Option target="Final_Cap"/>
 			<Option target="separate"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Configure.h">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
-			<Option target="test"/>
 			<Option target="check"/>
+			<Option target="Final_Cap"/>
 			<Option target="separate"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Ethernet_Cap.c">
@@ -362,27 +322,22 @@
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Tcp_Capture.c">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Tcp_Capture.h">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Udp_Capture.c">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Udp_Capture.h">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/check_update.c">
-			<Option target="Cap"/>
 			<Option target="check"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/main.c">
 			<Option target="Tcp_Capture"/>
-			<Option target="Cap"/>
+			<Option target="Final_Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/separate_check.c">
 			<Option target="separate"/>
