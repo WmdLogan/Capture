@@ -29,27 +29,26 @@ void check_update() {
                 }
                 if (strcmp(iter->key, "source_address") == 0) {
                     strcpy(src_add, iter->value);
+                    printf("配置s_add为:%s\n", src_add);
                 } else if (strcmp(iter->key, "destination_address") == 0) {
                     strcpy(des_add, iter->value);
+                    printf("配置d_add为:%s\n", des_add);
                 } else if (strcmp(iter->key, "source_port") == 0) {
                     strcpy(s_port, iter->value);
+                    printf("配置s_port为:%s\n", s_port);
                 } else if (strcmp(iter->key, "destination_port") == 0) {
                     strcpy(d_port, iter->value);
+                    printf("配置d_port为:%s\n", d_port);
                 } else if (strcmp(iter->key, "file_size") == 0) {
                     strcpy(file_size, iter->value);
+                    printf("配置file_size为%s\n", file_size);
                 } else if (strcmp(iter->key, "save_path") == 0) {
                     strcpy(path, iter->value);
+                    printf("配置save_path为%s\n", path);
                 } else if (strcmp(iter->key, "file_time") == 0) {
                     file_time = atoi(iter->value);
+                    printf("配置file_time为%d\n", file_time);
                 }
-                printf("配置s_add为:%s\n", src_add);
-                printf("配置d_add为:%s\n", des_add);
-                printf("配置s_port为:%s\n", s_port);
-                printf("配置d_port为:%s\n", d_port);
-                printf("配置net_interface为%s\n", net_interface);
-                printf("配置file_size为%s\n", file_size);
-                printf("配置save_path为%s\n", path);
-                printf("配置file_time为%s\n", file_time);
             }
         }
     }
@@ -76,12 +75,6 @@ int main() {
 //启动检查更新线程
     pthread_t check;
     pthread_create(&check, NULL, (void *) check_update, NULL);
-//拼保存文件的路径
-    final_path = (char *) malloc(strlen(path) + 10);
-    sprintf(final_path, "%s%s", path, "pcap");
-    sprintf(final_path, "%s%d", final_path, next_file);
-    sprintf(final_path, "%s%s", final_path, ".cap");
-    printf("all path is:%s\n", final_path);
 
     int up_key = 0;//网卡修改后的标志位
     char error_content[PCAP_ERRBUF_SIZE];
@@ -89,10 +82,9 @@ int main() {
     char bpf_filter_string[] = "";
     bpf_u_int32 net_mask;
     bpf_u_int32 net_ip;
-    Restart:
+Restart:
 //网卡修改，需要重新给pcap设置网卡
     if (up_key == 1) {
-
         if (strcmp(net_interface, "") != 0) {
             pcap_lookupnet(net_interface, &net_ip, &net_mask, error_content);
             pcap_handle = pcap_open_live(net_interface, BUFSIZ, 1, 1, error_content);
@@ -100,6 +92,7 @@ int main() {
             pcap_lookupnet("ens33", &net_ip, &net_mask, error_content);
             pcap_handle = pcap_open_live("ens33", BUFSIZ, 1, 1, error_content);
         }
+        printf("配置net_interface为%s\n", net_interface);
     }
 //程序启动，第一次让配置文件生效，这样check_update线程判断配置文件修改了再生效配置
     if (up_key == 0) {
@@ -128,6 +121,12 @@ int main() {
                 strcpy(file_size, iter->value);
             } else if (strcmp(iter->key, "save_path") == 0) {
                 strcpy(path, iter->value);
+                //拼保存文件的路径
+                final_path = (char *) malloc(strlen(path) + 10);
+                sprintf(final_path, "%s%s", path, "pcap");
+                sprintf(final_path, "%s%d", final_path, next_file);
+                sprintf(final_path, "%s%s", final_path, ".cap");
+                printf("all path is:%s\n", final_path);
             } else if (strcmp(iter->key, "file_time") == 0) {
                 file_time = atoi(iter->value);
             }

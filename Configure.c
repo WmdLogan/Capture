@@ -11,7 +11,8 @@ struct ccl_t configure()
     ccl_parse(&config, "/home/logan/CLionProjects/Capture/mytest.conf");
     return config;
 }
-/*int main(){
+/*
+int main(){
     struct ccl_t re = configure();
     const struct ccl_pair_t *iter;
     while((iter = ccl_iterate(&re)) != 0) {
@@ -19,4 +20,5 @@ struct ccl_t configure()
     }
     ccl_release(&re);
     return 0;
-}*/
+}
+*/

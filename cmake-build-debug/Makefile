@@ -136,6 +136,19 @@ Tcp_Capture/fast:
 .PHONY : Tcp_Capture/fast
 
 #=============================================================================
+# Target rules for targets named Configure
+
+# Build rule for target.
+Configure: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Configure
+.PHONY : Configure
+
+# fast build rule for target.
+Configure/fast:
+	$(MAKE) -f CMakeFiles\Configure.dir\build.make CMakeFiles/Configure.dir/build
+.PHONY : Configure/fast
+
+#=============================================================================
 # Target rules for targets named File
 
 # Build rule for target.
@@ -248,6 +261,7 @@ Configure.obj: Configure.c.obj
 # target to build an object file
 Configure.c.obj:
 	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.obj
+	$(MAKE) -f CMakeFiles\Configure.dir\build.make CMakeFiles/Configure.dir/Configure.c.obj
 	$(MAKE) -f CMakeFiles\check.dir\build.make CMakeFiles/check.dir/Configure.c.obj
 	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Configure.c.obj
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/Configure.c.obj
@@ -260,6 +274,7 @@ Configure.i: Configure.c.i
 # target to preprocess a source file
 Configure.c.i:
 	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.i
+	$(MAKE) -f CMakeFiles\Configure.dir\build.make CMakeFiles/Configure.dir/Configure.c.i
 	$(MAKE) -f CMakeFiles\check.dir\build.make CMakeFiles/check.dir/Configure.c.i
 	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Configure.c.i
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/Configure.c.i
@@ -272,6 +287,7 @@ Configure.s: Configure.c.s
 # target to generate assembly for a file
 Configure.c.s:
 	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Configure.c.s
+	$(MAKE) -f CMakeFiles\Configure.dir\build.make CMakeFiles/Configure.dir/Configure.c.s
 	$(MAKE) -f CMakeFiles\check.dir\build.make CMakeFiles/check.dir/Configure.c.s
 	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Configure.c.s
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/Configure.c.s
@@ -558,6 +574,7 @@ help:
 	@echo ... depend
 	@echo ... get_time
 	@echo ... Tcp_Capture
+	@echo ... Configure
 	@echo ... File
 	@echo ... check
 	@echo ... edit_cache

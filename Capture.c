@@ -42,7 +42,7 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
             }
 //过滤端口
             if ((source_port == atoi(s_port) || strcmp(s_port, "") == 0) &&
-                (destination_port == atoi(d_port) || strcmp(des_add, "") == 0))
+                (destination_port == atoi(d_port) || strcmp(d_port, "") == 0))
 //如果端口符合，开始保存
             {
                 printf("Port Qualified!!!!!\n");
@@ -64,7 +64,7 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
                 }
 //如果大小超了，或者超时了。打开新文件保存
                 else {
-                    printf("new file or out of date!!!!! \n");
+                    printf("too large or out of date!!!!! \n");
                     next_file++;
                     pcap_dump_close(out_pcap);
 //设置新的文件保存路径和文件名
@@ -79,7 +79,7 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
 //开始记录修改时间
                     stat(final_path, &cap_buf);
                     printf("new file time: %ld\n", cap_buf.st_ctime);
-                    current_size = packet_header->len + 24;
+                    current_size = packet_header->len + 40;
                 }
             }
         }

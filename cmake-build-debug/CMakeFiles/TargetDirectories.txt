@@ -1,5 +1,6 @@
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/get_time.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Tcp_Capture.dir
+D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Configure.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/File.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/check.dir
 D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/edit_cache.dir
