@@ -56,7 +56,9 @@ struct ip_header {
     u_int8_t ip_protocol;
     u_int16_t ip_checksum;
     struct in_addr ip_source_address;
+    u_int i_ip_source_address;
     struct in_addr ip_destination_address;
+    u_int i_ip_destination_address;
 };
 
 

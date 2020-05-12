@@ -13,7 +13,7 @@ add_executable(Configure Configure.c)
 add_executable(get_time Get_Update_Time.c)
 add_executable(check check_update.c Include/Capture.h Configure.c)
 add_executable(separate separate_check.c Configure.c)
-add_executable(Final_Cap main.c Capture.c Configure.c)
+add_executable(Final_Cap main.c Capture.c Configure.c hash.c delete_hash.c )
 
 
 include_directories(Include)

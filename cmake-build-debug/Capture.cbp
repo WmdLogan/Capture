@@ -307,13 +307,7 @@
 		<Unit filename="D:/CLionProjects/Capture/Arp_Capture.c">
 			<Option target="Tcp_Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Arp_Capture.h">
-			<Option target="Tcp_Capture"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Capture.c">
-			<Option target="Final_Cap"/>
-		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Capture.h">
 			<Option target="Final_Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Configure.c">
@@ -323,17 +317,7 @@
 			<Option target="Final_Cap"/>
 			<Option target="separate"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Configure.h">
-			<Option target="Tcp_Capture"/>
-			<Option target="Configure"/>
-			<Option target="check"/>
-			<Option target="Final_Cap"/>
-			<Option target="separate"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Ethernet_Cap.c">
-			<Option target="Tcp_Capture"/>
-		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Ethernet_Cap.h">
 			<Option target="Tcp_Capture"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Get_Update_Time.c">
@@ -342,38 +326,29 @@
 		<Unit filename="D:/CLionProjects/Capture/Icmp_Capture.c">
 			<Option target="Tcp_Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Icmp_Capture.h">
-			<Option target="Tcp_Capture"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Include/Capture.h">
 			<Option target="check"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Ip_Capture.c">
 			<Option target="Tcp_Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Ip_Capture.h">
-			<Option target="Tcp_Capture"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Save_File.c">
-			<Option target="File"/>
-		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Save_File.h">
 			<Option target="File"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Tcp_Capture.c">
 			<Option target="Tcp_Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Tcp_Capture.h">
-			<Option target="Tcp_Capture"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Udp_Capture.c">
-			<Option target="Tcp_Capture"/>
-		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Udp_Capture.h">
 			<Option target="Tcp_Capture"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/check_update.c">
 			<Option target="check"/>
+		</Unit>
+		<Unit filename="D:/CLionProjects/Capture/delete_hash.c">
+			<Option target="Final_Cap"/>
+		</Unit>
+		<Unit filename="D:/CLionProjects/Capture/hash.c">
+			<Option target="Final_Cap"/>
 		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/main.c">
 			<Option target="Tcp_Capture"/>

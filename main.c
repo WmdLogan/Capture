@@ -1,4 +1,6 @@
-#include "Capture.h"
+//#include "Capture.h"
+#include "delete_hash.h"
+
 
 //检查配置文件更新线程
 void check_update() {
@@ -74,6 +76,9 @@ int file_time;//最大记录时长
 int main() {
 //启动检查更新线程
     pthread_t check;
+    pthread_t delete;
+    pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
+    init_hashlist(TCAP_hash);
     pthread_create(&check, NULL, (void *) check_update, NULL);
 
     int up_key = 0;//网卡修改后的标志位
