@@ -59,6 +59,7 @@ all: CMakeFiles/File.dir/all
 all: CMakeFiles/check.dir/all
 all: CMakeFiles/Final_Cap.dir/all
 all: CMakeFiles/separate.dir/all
+all: CMakeFiles/anl.dir/all
 
 .PHONY : all
 
@@ -75,6 +76,7 @@ clean: CMakeFiles/File.dir/clean
 clean: CMakeFiles/check.dir/clean
 clean: CMakeFiles/Final_Cap.dir/clean
 clean: CMakeFiles/separate.dir/clean
+clean: CMakeFiles/anl.dir/clean
 
 .PHONY : clean
 
@@ -85,7 +87,7 @@ clean: CMakeFiles/separate.dir/clean
 CMakeFiles/get_time.dir/all:
 	$(MAKE) -f CMakeFiles\get_time.dir\build.make CMakeFiles/get_time.dir/depend
 	$(MAKE) -f CMakeFiles\get_time.dir\build.make CMakeFiles/get_time.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=23,24 "Built target get_time"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=25,26 "Built target get_time"
 .PHONY : CMakeFiles/get_time.dir/all
 
 # Build rule for subdir invocation for target.
@@ -193,7 +195,7 @@ CMakeFiles/File.dir/clean:
 CMakeFiles/check.dir/all:
 	$(MAKE) -f CMakeFiles\check.dir\build.make CMakeFiles/check.dir/depend
 	$(MAKE) -f CMakeFiles\check.dir\build.make CMakeFiles/check.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=20,21,22 "Built target check"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=22,23,24 "Built target check"
 .PHONY : CMakeFiles/check.dir/all
 
 # Build rule for subdir invocation for target.
@@ -247,7 +249,7 @@ CMakeFiles/Final_Cap.dir/clean:
 CMakeFiles/separate.dir/all:
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/depend
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=25,26,27 "Built target separate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=27,28,29 "Built target separate"
 .PHONY : CMakeFiles/separate.dir/all
 
 # Build rule for subdir invocation for target.
@@ -266,6 +268,33 @@ separate: CMakeFiles/separate.dir/rule
 CMakeFiles/separate.dir/clean:
 	$(MAKE) -f CMakeFiles\separate.dir\build.make CMakeFiles/separate.dir/clean
 .PHONY : CMakeFiles/separate.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/anl.dir
+
+# All Build rule for target.
+CMakeFiles/anl.dir/all:
+	$(MAKE) -f CMakeFiles\anl.dir\build.make CMakeFiles/anl.dir/depend
+	$(MAKE) -f CMakeFiles\anl.dir\build.make CMakeFiles/anl.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles --progress-num=20,21 "Built target anl"
+.PHONY : CMakeFiles/anl.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/anl.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/anl.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CLionProjects\Capture\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/anl.dir/rule
+
+# Convenience name for target.
+anl: CMakeFiles/anl.dir/rule
+
+.PHONY : anl
+
+# clean rule for target.
+CMakeFiles/anl.dir/clean:
+	$(MAKE) -f CMakeFiles\anl.dir\build.make CMakeFiles/anl.dir/clean
+.PHONY : CMakeFiles/anl.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

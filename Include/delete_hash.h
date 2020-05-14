@@ -5,4 +5,5 @@
 #include <sys/time.h>
 #include <pthread.h>
 #include "hash.h"
+
 void *hash_analysis();

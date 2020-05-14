@@ -1,6 +1,7 @@
 #include "hash.h"
+
 void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
-    bpf_u_int32 len=packet_header->len;
+    bpf_u_int32 len = packet_header->len;
     struct ether_header *ethernet_protocol;
     struct udp_header *udp_protocol;
     struct tcp_header *tcp_protocol;
@@ -47,7 +48,7 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
             {
                 printf("Port Qualified!!!!!\n");
 //插入哈希表
-                insert_hash(packet_content,TCAP_hash,len);
+                insert_hash(packet_content, TCAP_hash, len);
 //标志位为0，创建第一个文件，开始记录时间
                 if (first_file_flag == 0) {
                     out_pcap = pcap_dump_open(pcap_handle, final_path);
