@@ -11,6 +11,16 @@ struct ccl_t configure()
     ccl_parse(&config, "/home/logan/CLionProjects/Capture/mytest.conf");
     return config;
 }
+struct ccl_t configure1()
+{
+    struct ccl_t config;
+    config.comment_char = '#';
+    config.sep_char = '=';
+    config.str_char = '"';
+
+    ccl_parse(&config, "/home/logan/CLionProjects/Capture/mytest1.conf");
+    return config;
+}
 /*
 int main(){
     struct ccl_t re = configure();
