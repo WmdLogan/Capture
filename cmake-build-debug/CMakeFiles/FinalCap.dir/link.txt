@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/FinalCap.dir/main.c.o CMakeFiles/FinalCap.dir/Capture.c.o  -o FinalCap  -lpcap -lccl -lpthread 

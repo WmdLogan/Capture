@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Include/Configure.h
+ccl/ccl.h
+-
+
+/home/logan/CLionProjects/Capture/Configure.c
+stdio.h
+-
+Configure.h
+/home/logan/CLionProjects/Capture/Configure.h
+

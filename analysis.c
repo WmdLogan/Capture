@@ -81,8 +81,11 @@ void merge_file(char merged_path[], char file_path[]) {
     printf("merge complete!\n");
 }
 
-void analysis(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
+void analysis(u_char *argument, struct pcap_pkthdr *packet_header, u_char *packet_content) {
     printf("Analysis packet %d!\n", packet_number);
+    printf("time: %ld\n", packet_header->ts.tv_sec);
+    packet_header->ts.tv_sec += 10;
+    printf("time: %ld\n", packet_header->ts.tv_sec);
     pcap_dump((u_char *) out_pcap, packet_header, packet_content);
     pcap_dump_flush(out_pcap);
     packet_number++;
@@ -96,10 +99,17 @@ int main() {
     pcap_t *pcap_handle;
     char error_content[PCAP_ERRBUF_SIZE];
     struct bpf_program bpf_filter;
-    char bpf_filter_string[] = "ip des 192.168.2.101 and tcp port 80 ";
+    char bpf_filter_string[] = "";
 //    char bpf_filter_string[] = " ";
     bpf_u_int32 net_ip;
+/*    pcap_handle = pcap_open_offline("/home/packets/bpcap1.cap", error_content);
+    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
+    pcap_setfilter(pcap_handle, &bpf_filter);
 
+    out_pcap = pcap_dump_open(pcap_handle, "/home/change.cap");
+
+    pcap_loop(pcap_handle, -1, analysis, NULL);
+    pcap_close(pcap_handle);*/
     while (1) {
         loc = 0;
 //10 seconds filter once
@@ -119,16 +129,16 @@ int main() {
                 count++;
                 sprintf(final_path, "%s%s", "/home/packets/", ent->d_name);
                 printf("analysing :%s\n", final_path);
+
                 pcap_handle = pcap_open_offline(final_path, error_content);
                 pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
                 pcap_setfilter(pcap_handle, &bpf_filter);
-                out_pcap = pcap_dump_open(pcap_handle, "/home/logan/extract.cap");
+
+                out_pcap = pcap_dump_open(pcap_handle, final_path);
                 pcap_loop(pcap_handle, -1, analysis, NULL);
                 pcap_close(pcap_handle);
             }
         }
     }
-
-
     return 0;
 }

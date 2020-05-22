@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/get.dir/Configure.c.o  -o get  -lpcap -lccl 

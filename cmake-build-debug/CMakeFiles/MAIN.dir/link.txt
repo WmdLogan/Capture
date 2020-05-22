@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/MAIN.dir/cap_main.c.o  -o MAIN  -lpcap -lccl -lpthread 

@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/gettime.dir/Configure.c.o  -o gettime  -lpcap -lccl 

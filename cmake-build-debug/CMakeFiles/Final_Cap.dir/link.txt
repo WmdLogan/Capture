@@ -1,3 +1,1 @@
-"D:\Program Files\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Final_Cap.dir/objects.a
-D:\Mingw\bin\ar.exe cr CMakeFiles\Final_Cap.dir/objects.a @CMakeFiles\Final_Cap.dir\objects1.rsp
-D:\Mingw\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Final_Cap.dir/objects.a -Wl,--no-whole-archive  -o Final_Cap.exe -Wl,--out-implib,libFinal_Cap.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Final_Cap.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/Final_Cap.dir/main.c.o CMakeFiles/Final_Cap.dir/Capture.c.o CMakeFiles/Final_Cap.dir/Configure.c.o CMakeFiles/Final_Cap.dir/hash.c.o CMakeFiles/Final_Cap.dir/delete_hash.c.o  -o Final_Cap  -lpcap -lccl -lpthread 

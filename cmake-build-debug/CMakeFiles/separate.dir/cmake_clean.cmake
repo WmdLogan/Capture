@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/separate.dir/Configure.c.obj"
-  "CMakeFiles/separate.dir/separate_check.c.obj"
-  "libseparate.dll.a"
-  "separate.exe"
-  "separate.exe.manifest"
+  "CMakeFiles/separate.dir/Configure.c.o"
+  "CMakeFiles/separate.dir/separate_check.c.o"
+  "separate"
   "separate.pdb"
 )
 
