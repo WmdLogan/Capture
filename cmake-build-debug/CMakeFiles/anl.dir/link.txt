@@ -1,3 +1,1 @@
-"D:\Program Files\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\anl.dir/objects.a
-D:\Mingw\bin\ar.exe cr CMakeFiles\anl.dir/objects.a @CMakeFiles\anl.dir\objects1.rsp
-D:\Mingw\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\anl.dir/objects.a -Wl,--no-whole-archive  -o anl.exe -Wl,--out-implib,libanl.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\anl.dir\linklibs.rsp
+/usr/bin/cc -g   CMakeFiles/anl.dir/analysis.c.o  -o anl  -lpcap -lccl -lpthread 
