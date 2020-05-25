@@ -90,6 +90,30 @@ void analysis(u_char *argument, const struct pcap_pkthdr *packet_header, const u
 }
 
 int main() {
+    char bpf_filter_string[30];
+    char exact[30];
+    pid_t pid; //fpid表示fork函数返回的值
+    pid = fork();
+    if (pid < 0)
+        printf("error in fork!");
+    else if (pid == 0) {//child
+        pid_t pid1; //fpid表示fork函数返回的值
+        pid1 = fork();
+        if (pid1 < 0)
+            printf("error in fork!");
+        else if (pid1 == 0) {//child
+            strcpy(bpf_filter_string, "udp port 53");
+            strcpy(exact, "/home/extract1.cap");
+        }
+        else {//grandchild
+            strcpy(bpf_filter_string, "src 192.168.2.101");
+            strcpy(exact, "/home/extract3.cap");
+        }
+    }
+    else {//father
+        strcpy(bpf_filter_string, "tcp port 80");
+        strcpy(exact, "/home/extract2.cap");
+    }
     char *final_path;//拼成文件名
     final_path = (char *) malloc(sizeof(char) * 30);
     int count = 0;
@@ -97,12 +121,11 @@ int main() {
     pcap_t *pcap_handle;
     char error_content[PCAP_ERRBUF_SIZE];
     struct bpf_program bpf_filter;
-    char bpf_filter_string[] = "tcp port 80";
     bpf_u_int32 net_ip;
     while (1) {
         loc = 0;
 //10 seconds filter once
-        sleep(5);
+        sleep(1);
         DIR *pDir;
         struct dirent *ent;
         pDir = opendir("/home/packets");
@@ -125,7 +148,7 @@ int main() {
                 pcap_setfilter(pcap_handle, &bpf_filter);
                 if (open_flag == 1) {
                     open_flag = 0;
-                    out_pcap = pcap_dump_open(pcap_handle, "/home/exact.cap");
+                    out_pcap = pcap_dump_open(pcap_handle, exact);
                 }
 
                 pcap_loop(pcap_handle, -1, analysis, NULL);
