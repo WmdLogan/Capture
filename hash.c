@@ -85,10 +85,10 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
     ethernet_type = ntohs(ethernet_protocol->ether_type);
     struct tcp_header *tcp_protocol;
     struct udp_header *udp_protocol;
-    struct ip_header *ip_protocol;
+    struct ip_hash_header *ip_protocol;
     switch (ethernet_type) {
         case 0x0800: {
-            ip_protocol = (struct ip_header *) (packet_content + 14);
+            ip_protocol = (struct ip_hash_header *) (packet_content + 14);
             addr.dest_ip = ip_protocol->i_ip_destination_address;
             addr.source_ip = ip_protocol->i_ip_source_address;
             //     printf("dest ip:%d source ip:%d\n",addr.dest_ip,addr.source_ip);

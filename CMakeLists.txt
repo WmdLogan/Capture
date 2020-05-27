@@ -17,6 +17,8 @@ add_executable(Final_Cap main.c Capture.c Configure.c hash.c delete_hash.c )
 add_executable(Final_Cap1 main1.c Capture.c Configure.c hash.c delete_hash.c )
 add_executable(anl analysis.c )
 add_executable(dir read_dir.c )
+add_executable(filesort file_sort.c )
+
 
 
 include_directories(Include)

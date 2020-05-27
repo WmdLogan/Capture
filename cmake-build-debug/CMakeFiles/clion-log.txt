@@ -1,9 +1,11 @@
-/home/logan/下载/clion-2020.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/logan/CLionProjects/Capture
-CMake Error at CMakeLists.txt:17 (add_executable):
-  The target name "Final_Cap1./" is reserved or not valid for certain CMake
-  features, such as generator expressions, and may result in undefined
-  behavior.
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+"D:\Program Files\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\CLionProjects\Capture
+-- The C compiler identification is GNU 8.2.0
+-- Check for working C compiler: D:/Mingw/bin/gcc.exe
+-- Check for working C compiler: D:/Mingw/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/CLionProjects/Capture/cmake-build-debug

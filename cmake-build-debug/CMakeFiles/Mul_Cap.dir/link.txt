@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/Mul_Cap.dir/Mul_Cap.c.o  -o Mul_Cap  -lpcap 

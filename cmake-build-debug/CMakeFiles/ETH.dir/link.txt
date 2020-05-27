@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/ETH.dir/Ethernet_Cap.c.o  -o ETH  -lpcap -lccl -lpthread 

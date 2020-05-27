@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/logan/CLionProjects/Capture/Configure.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/check.dir/Configure.c.o"
-  "/home/logan/CLionProjects/Capture/check_update.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/check.dir/check_update.c.o"
+  "D:/CLionProjects/Capture/Configure.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/check.dir/Configure.c.obj"
+  "D:/CLionProjects/Capture/check_update.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/check.dir/check_update.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
