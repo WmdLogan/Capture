@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/logan/CLionProjects/Capture/Ip_Capture.h
+
+/home/logan/CLionProjects/Capture/Mul_Ethernet.c
+pcap.h
+/home/logan/CLionProjects/Capture/pcap.h
+Ip_Capture.h
+/home/logan/CLionProjects/Capture/Ip_Capture.h
+
