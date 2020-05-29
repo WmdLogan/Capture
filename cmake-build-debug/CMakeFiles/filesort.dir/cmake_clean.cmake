@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/filesort.dir/file_sort.c.obj"
-  "filesort.exe"
-  "filesort.exe.manifest"
+  "CMakeFiles/filesort.dir/file_sort.c.o"
+  "filesort"
   "filesort.pdb"
-  "libfilesort.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

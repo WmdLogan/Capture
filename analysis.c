@@ -79,50 +79,23 @@ void merge_file(char merged_path[], char file_path[]) {
     fclose(fp);
     printf("merge complete!\n");
 }
-struct pcap_pkthdr* packet_headers[1000];
-u_char* packet_contents[1000];
-pcap_dumper_t *out_pcaps[1000];
-int packet_number;
+
+int packet_number = 0;
 pcap_dumper_t *out_pcap;
 void analysis(u_char *argument,  struct pcap_pkthdr *packet_header,  u_char *packet_content) {
-    packet_number = 0;
     printf("Analysis packet %d!\n", packet_number);
     printf("packet length:%d!\n", packet_header->len);
-    packet_headers[packet_number] = packet_header;
-    packet_contents[packet_number] = packet_content;
-    out_pcaps[packet_number] = out_pcap;
-/*
     pcap_dump((u_char *) out_pcap, packet_header, packet_content);
-    pcap_dump_flush(out_pcap);*/
+    pcap_dump_flush(out_pcap);
     packet_number++;
 }
 
 int main() {
-    merge_file("/home/extract1.cap", "/home/extract2.cap");
-    return 0;
     char bpf_filter_string[1000];
     char exact[30];
-    pcap_t *pcap_handle;
-    char error_content[PCAP_ERRBUF_SIZE];
-    struct bpf_program bpf_filter;
-    bpf_u_int32 net_ip;
-    strcpy(bpf_filter_string, " ");
-    pcap_handle = pcap_open_offline("/home/extract1.cap", error_content);
-    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
-    pcap_setfilter(pcap_handle, &bpf_filter);
 
-    out_pcap = pcap_dump_open(pcap_handle, "/home/extract1_change.cap");
-
-    pcap_loop(pcap_handle, -1, analysis, NULL);
-    for (int i = packet_number; i >= 0 ; i--) {
-        pcap_dump((u_char *) out_pcaps[i], packet_headers[i], packet_contents[i]);
-        pcap_dump_flush(out_pcap);
-    }
-
-    pcap_close(pcap_handle);
-    return 0;
-/*   多条五元组
- * pid_t pid; //fpid表示fork函数返回的值
+// 多条五元组
+  /*  pid_t pid; //fpid表示fork函数返回的值
     pid = fork();
     if (pid < 0)
         printf("error in fork!");
@@ -145,8 +118,8 @@ int main() {
         strcpy(exact, "/home/extract2.cap");
     }*/
 //    original!!!!!!!!!!!!
-  /*  strcpy(bpf_filter_string, "dst 192.168.2.101 and src 218.7.43.8 and tcp dst port 52796 and tcp src port 80");
-    strcpy(exact, "/home/extract2.cap");
+    strcpy(bpf_filter_string, "host 192.168.2.101 or host 218.7.43.8 and tcp port 47448");
+    strcpy(exact, "/home/extract7.cap");
     char *final_path;//拼成文件名
     final_path = (char *) malloc(sizeof(char) * 30);
     int count = 0;
@@ -185,9 +158,10 @@ int main() {
                 }
 
                 pcap_loop(pcap_handle, -1, analysis, NULL);
+                printf("hahahahahaha\n");
                 pcap_close(pcap_handle);
             }
         }
-    }*/
+    }
         return 0;
 }

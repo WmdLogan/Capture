@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/get_time.dir/Get_Update_Time.c.obj"
-  "get_time.exe"
-  "get_time.exe.manifest"
+  "CMakeFiles/get_time.dir/Get_Update_Time.c.o"
+  "get_time"
   "get_time.pdb"
-  "libget_time.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
