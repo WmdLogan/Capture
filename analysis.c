@@ -94,7 +94,7 @@ int main() {
     char bpf_filter_string[1000];
     char exact[30];
 //3 piece of wu-yuan-zu
-  /*  pid_t pid; //fpid表示fork函数返回的值
+    pid_t pid; //fpid表示fork函数返回的值
     pid = fork();
     if (pid < 0)
         printf("error in fork!");
@@ -104,21 +104,21 @@ int main() {
         if (pid1 < 0)
             printf("error in fork!");
         else if (pid1 == 0) {//child
-            strcpy(bpf_filter_string, "udp port 53");
-            strcpy(exact, "/home/extract1.cap");
+            strcpy(bpf_filter_string, "src host 192.168.2.101 and dst host 218.7.43.44 and src port 47448 and dst port 80");
+            strcpy(exact, "/home/src.cap");
         }
         else {//grandchild
-            strcpy(bpf_filter_string, "src 192.168.2.101");
-            strcpy(exact, "/home/extract3.cap");
+            strcpy(bpf_filter_string, "dst host 192.168.2.101 and src host 218.7.43.44 and dst port 47448 and src port 80");
+            strcpy(exact, "/home/dst.cap");
         }
     }
     else {//father
-        strcpy(bpf_filter_string, "tcp port 80");
-        strcpy(exact, "/home/extract2.cap");
-    }*/
+        strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.44 and tcp port 47448 and port 80");
+        strcpy(exact, "/home/all.cap");
+    }
 //single wu-yuan-zu
-    strcpy(bpf_filter_string, "host 192.168.2.101 or host 218.7.43.8 and tcp port 47448");
-    strcpy(exact, "/home/extract7.cap");
+/*    strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.8 and tcp port 52802 and port 80");
+    strcpy(exact, "/home/test1.cap");*/
     char *final_path;//拼成文件名
     final_path = (char *) malloc(sizeof(char) * 30);
     int count = 0;

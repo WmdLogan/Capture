@@ -31,10 +31,13 @@ typedef struct {
 
 pcap_dumper_t *out_pcap;
 package aPackage[1000];
+package dis_aPackage[1000];
 int aPacket_number = 0;
 package bPackage[1000];
+package dis_bPackage[1000];
 int bPacket_number = 0;
 int packet_number = 0;
+int flag = 0;
 
 //sort single cap
 void sort_cap(package *pac, const int len) {
@@ -110,22 +113,22 @@ void sort_cap(package *pac, const int len) {
 }
 
 //disorder file
-void disorder_file(char merged_path[], char file_path[], package *pac) {
+void disorder_file(char origin_path[], char disorder_path[], package *pac) {
     FILE *merged;
     FILE *fp;
     char ch;
     unsigned int loc = 24;
-//写入的文件
-    if ((fp = fopen(file_path, "r")) == NULL) {
+//origin file
+    if ((fp = fopen(origin_path, "r")) == NULL) {
         printf("error: can not open pcap file\n");
         return;
     }
     fseek(fp, 0, SEEK_SET);
-//被写入的文件
-    if ((merged = fopen(merged_path, "a+")) == NULL) {
+//disorder file
+    if ((merged = fopen(disorder_path, "a+")) == NULL) {
         return;
     }
-//sort file
+//reverse
     for (int i = packet_number - 1; i >= -1; i--) {
         printf("loc = %d\n", loc);
         while (loc != 0) {
@@ -142,7 +145,7 @@ void disorder_file(char merged_path[], char file_path[], package *pac) {
 };
 
 //sort and merge two cap
-void sort_file(char src_path[], int a_len, package a_Package[], char des_path[], int b_len, package b_Package[]) {
+void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], int b_len, package *b_Package) {
     FILE *sort;
     FILE *fp_a;
     FILE *fp_b;
@@ -320,12 +323,20 @@ void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
     printf("packet length:%d!\n", packet_header->len);
     printf("packet seq:%u\n", ntohl(tcp_protocol->tcp_acknowledgement));
     printf("packet ack:%u\n", ntohl(tcp_protocol->tcp_ack));
-    aPackage[packet_number].begin = location;
-    location += packet_header->len + 16;
-    aPackage[packet_number].end = location;
-    aPackage[packet_number].ack = ntohl(tcp_protocol->tcp_ack);
-    aPackage[packet_number].seq = ntohl(tcp_protocol->tcp_acknowledgement);
-    aPackage[packet_number].length = packet_header->len;
+    if (flag == 0) {
+        dis_aPackage[packet_number].begin = location;
+        location += packet_header->len + 16;
+        dis_aPackage[packet_number].end = location;
+        dis_aPackage[packet_number].length = packet_header->len;
+    }
+    if (flag == 1) {
+        aPackage[packet_number].begin = location;
+        location += packet_header->len + 16;
+        aPackage[packet_number].end = location;
+        aPackage[packet_number].ack = ntohl(tcp_protocol->tcp_ack);
+        aPackage[packet_number].seq = ntohl(tcp_protocol->tcp_acknowledgement);
+        aPackage[packet_number].length = packet_header->len;
+    }
     packet_number++;
 }
 
@@ -339,12 +350,20 @@ void analysis_b(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
     printf("packet length:%d!\n", packet_header->len);
     printf("packet seq:%u\n", ntohl(tcp_protocol->tcp_acknowledgement));
     printf("packet ack:%u\n", ntohl(tcp_protocol->tcp_ack));
-    bPackage[packet_number].begin = location;
-    location += packet_header->len + 16;
-    bPackage[packet_number].end = location;
-    bPackage[packet_number].ack = ntohl(tcp_protocol->tcp_ack);
-    bPackage[packet_number].seq = ntohl(tcp_protocol->tcp_acknowledgement);
-    bPackage[packet_number].length = packet_header->len;
+    if (flag == 0) {
+        dis_bPackage[packet_number].begin = location;
+        location += packet_header->len + 16;
+        dis_bPackage[packet_number].end = location;
+        dis_bPackage[packet_number].length = packet_header->len;
+    }
+    if (flag == 1) {
+        bPackage[packet_number].begin = location;
+        location += packet_header->len + 16;
+        bPackage[packet_number].end = location;
+        bPackage[packet_number].ack = ntohl(tcp_protocol->tcp_ack);
+        bPackage[packet_number].seq = ntohl(tcp_protocol->tcp_acknowledgement);
+        bPackage[packet_number].length = packet_header->len;
+    }
     packet_number++;
 }
 
@@ -355,10 +374,33 @@ int main() {
     struct bpf_program bpf_filter;
     bpf_u_int32 net_ip;
     char *bpf_filter_string = " ";
-//    disorder_file("/home/extract2_change.cap", "/home/extract2.cap", aPackage);
+//disorder src.cap
+/*    pcap_handle = pcap_open_offline("/home/src.cap", error_content);
 
+    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
+    pcap_setfilter(pcap_handle, &bpf_filter);
+
+    pcap_loop(pcap_handle, -1, analysis_a, NULL);
+    pcap_close(pcap_handle);
+    aPacket_number = packet_number;
+    disorder_file("/home/src.cap", "/home/src_change.cap",dis_aPackage);
+    packet_number = 0;
+
+//disorder dst.cap
+    pcap_handle = pcap_open_offline("/home/dst.cap", error_content);
+
+    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
+    pcap_setfilter(pcap_handle, &bpf_filter);
+
+    pcap_loop(pcap_handle, -1, analysis_b, NULL);
+    pcap_close(pcap_handle);
+    aPacket_number = packet_number;
+    disorder_file("/home/dst.cap", "/home/dst_change.cap",dis_bPackage);
+    packet_number = 0;*/
+
+    flag = 1;
 //sort disordered a.cap
-    pcap_handle = pcap_open_offline("/home/extract1_change.cap", error_content);
+    pcap_handle = pcap_open_offline("/home/src_change.cap", error_content);
 
     pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
     pcap_setfilter(pcap_handle, &bpf_filter);
@@ -367,13 +409,10 @@ int main() {
     pcap_close(pcap_handle);
     aPacket_number = packet_number;
     sort_cap(aPackage, packet_number);
-    for (int k = 0; k < aPacket_number; k++) {
-        printf("seq: %u, ack: %u\n", aPackage[k].seq, aPackage[k].ack);
-        printf("length = %d\n", aPackage[k].length);
-    }
     packet_number = 0;
+
 //sort disordered b.cap
-    pcap_handle = pcap_open_offline("/home/extract2_change.cap", error_content);
+    pcap_handle = pcap_open_offline("/home/dst_change.cap", error_content);
 
     pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
     pcap_setfilter(pcap_handle, &bpf_filter);
@@ -381,15 +420,11 @@ int main() {
     pcap_loop(pcap_handle, -1, analysis_b, NULL);
     pcap_close(pcap_handle);
     bPacket_number = packet_number;
-
     sort_cap(bPackage, packet_number);
-    for (int k = 0; k < bPacket_number; k++) {
-        printf("seq: %u, ack: %u\n", bPackage[k].seq, bPackage[k].ack);
-        printf("length = %d\n", bPackage[k].length);
-    }
+
 //sort and merge 2 file
-    sort_file("/home/extract2_change.cap", bPacket_number, bPackage, "/home/extract1_change.cap", aPacket_number,
-              aPackage);
+    sort_file("/home/src_change.cap", aPacket_number, aPackage, "/home/dst_change.cap", bPacket_number,
+              bPackage);
     return 0;
 }
 
