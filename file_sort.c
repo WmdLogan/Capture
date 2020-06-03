@@ -36,6 +36,7 @@ package bPackage[1000];
 int bPacket_number = 0;
 int packet_number = 0;
 
+//sort single cap
 void sort_cap(package *pac, const int len) {
     int i, count = 0, flag = 3, length;
     u_int key;
@@ -108,6 +109,7 @@ void sort_cap(package *pac, const int len) {
     }
 }
 
+//disorder file
 void disorder_file(char merged_path[], char file_path[], package *pac) {
     FILE *merged;
     FILE *fp;
@@ -139,144 +141,147 @@ void disorder_file(char merged_path[], char file_path[], package *pac) {
     printf("merge complete!\n");
 };
 
-void sort_file(char src_path[], int a_len, char des_path[], int b_len) {
-
+//sort and merge two cap
+void sort_file(char src_path[], int a_len, package a_Package[], char des_path[], int b_len, package b_Package[]) {
     FILE *sort;
     FILE *fp_a;
     FILE *fp_b;
-    int i = 0, j = 0;
+    int i = 0, j = 0;//count
     char ch;
+//start read loc
     unsigned int loc_a = 24;
     unsigned int loc_b = 24;
+//open cap1 and cap2
     if ((fp_a = fopen(src_path, "r")) == NULL || (fp_b = fopen(des_path, "r")) == NULL) {
         printf("error: can not open pcap file\n");
         return;
     }
+//open sort and merge file
     if ((sort = fopen("/home/sort1_tcp.cap", "a+")) == NULL) {
         return;
     }
-    if (aPackage[i].ack == 0) {//start from a
+//a's ack == 0, start from a
+    if (a_Package[i].ack == 0) {
+//read a's 24B file header
         fseek(fp_a, 0, SEEK_SET);
         while (loc_a != 0) {
             ch = fgetc(fp_a);
             fputc(ch, sort);
             loc_a--;
         }
-        fseek(fp_a, aPackage[0].begin, SEEK_SET);
-        loc_a = aPackage[0].end - aPackage[0].begin;
-        fseek(fp_b, bPackage[0].begin, SEEK_SET);
-        loc_b = bPackage[0].end - bPackage[0].begin;
+//find a and b start loc and packet length
+        fseek(fp_a, a_Package[0].begin, SEEK_SET);
+        loc_a = a_Package[0].end - a_Package[0].begin;
+        fseek(fp_b, b_Package[0].begin, SEEK_SET);
+        loc_b = b_Package[0].end - b_Package[0].begin;
         i++;
         j++;
-//merge and sort
+//merge and sort,one packet once
         while (i <= a_len && j <= b_len) {
-//write file a
+//write file a's packet
             printf("a_loc = %d\n", loc_a);
-            while (loc_a != 0)
-            {
+            while (loc_a != 0) {
                 ch = fgetc(fp_a);
                 fputc(ch, sort);
                 loc_a--;
             }
-            fseek(fp_a, aPackage[i].begin, SEEK_SET);
-            loc_a = aPackage[i].end - aPackage[i].begin;
-            if (aPackage[i - 1].ack == aPackage[i].ack && aPackage[i - 1].seq == aPackage[i].seq) {
+//find a's next start loc and packet length
+            fseek(fp_a, a_Package[i].begin, SEEK_SET);
+            loc_a = a_Package[i].end - a_Package[i].begin;
+//if next packet ack,seq same ,write next packet
+            if (a_Package[i - 1].ack == a_Package[i].ack && a_Package[i - 1].seq == a_Package[i].seq) {
                 i++;
-                while (loc_a != 0)
-                {
+                while (loc_a != 0) {
                     ch = fgetc(fp_a);
                     fputc(ch, sort);
                     loc_a--;
                 }
-                fseek(fp_a, aPackage[i].begin, SEEK_SET);
-                loc_a = aPackage[i].end - aPackage[i].begin;
+                fseek(fp_a, a_Package[i].begin, SEEK_SET);
+                loc_a = a_Package[i].end - a_Package[i].begin;
             }
-
-//write file b
+//write file b's packet, similar with a
             printf("b_loc = %d\n", loc_b);
-            while (loc_b != 0)
-            {
+            while (loc_b != 0) {
                 ch = fgetc(fp_b);
                 fputc(ch, sort);
                 loc_b--;
             }
-            fseek(fp_b, bPackage[j].begin, SEEK_SET);
-            loc_b = bPackage[j].end - bPackage[j].begin;
-            if (bPackage[j-1].ack == bPackage[j].ack && bPackage[j-1].seq == bPackage[j].seq) {
+            fseek(fp_b, b_Package[j].begin, SEEK_SET);
+            loc_b = b_Package[j].end - b_Package[j].begin;
+            if (b_Package[j - 1].ack == b_Package[j].ack && b_Package[j - 1].seq == b_Package[j].seq) {
                 j++;
-                while (loc_b != 0)
-                {
+                while (loc_b != 0) {
                     ch = fgetc(fp_b);
                     fputc(ch, sort);
                     loc_b--;
                 }
-                fseek(fp_b, bPackage[j].begin, SEEK_SET);
-                loc_b = bPackage[j].end - bPackage[j].begin;
+                fseek(fp_b, b_Package[j].begin, SEEK_SET);
+                loc_b = b_Package[j].end - b_Package[j].begin;
             }
             i++;
             j++;
         }
-    } else {//start from b
+    }
+//b's ack == 0, start from b
+    else {
+//write b's file header
         fseek(fp_b, 0, SEEK_SET);
         while (loc_b != 0) {
             ch = fgetc(fp_b);
             fputc(ch, sort);
             loc_b--;
         }
-        fseek(fp_b, bPackage[0].begin, SEEK_SET);
-        loc_b = bPackage[0].end - bPackage[0].begin;
-        fseek(fp_a, aPackage[0].begin, SEEK_SET);
-        loc_a = aPackage[0].end - aPackage[0].begin;
+        fseek(fp_b, b_Package[0].begin, SEEK_SET);
+        loc_b = b_Package[0].end - b_Package[0].begin;
+        fseek(fp_a, a_Package[0].begin, SEEK_SET);
+        loc_a = a_Package[0].end - a_Package[0].begin;
         i++;
         j++;
 //merge and sort
         while (i <= a_len && j <= b_len) {
-//write file a
+//write file b's packet
             printf("b_loc = %d\n", loc_b);
-            while (loc_b != 0)
-            {
+            while (loc_b != 0) {
                 ch = fgetc(fp_b);
                 fputc(ch, sort);
                 loc_b--;
             }
-            fseek(fp_b, bPackage[j].begin, SEEK_SET);
-            loc_b = bPackage[j].end - bPackage[j].begin;
-            if (bPackage[j - 1].ack == bPackage[j].ack && bPackage[j - 1].seq == bPackage[j].seq) {
+            fseek(fp_b, b_Package[j].begin, SEEK_SET);
+            loc_b = b_Package[j].end - b_Package[j].begin;
+            if (b_Package[j - 1].ack == b_Package[j].ack && b_Package[j - 1].seq == b_Package[j].seq) {
                 j++;
-                while (loc_b != 0)
-                {
+                while (loc_b != 0) {
                     ch = fgetc(fp_b);
                     fputc(ch, sort);
                     loc_b--;
                 }
-                fseek(fp_b, bPackage[j].begin, SEEK_SET);
-                loc_b = bPackage[j].end - bPackage[j].begin;
+                fseek(fp_b, b_Package[j].begin, SEEK_SET);
+                loc_b = b_Package[j].end - b_Package[j].begin;
             }
-//write file b
+//write file a's packet
             printf("a_loc = %d\n", loc_a);
-            while (loc_a != 0)
-            {
+            while (loc_a != 0) {
                 ch = fgetc(fp_a);
                 fputc(ch, sort);
                 loc_a--;
             }
-            fseek(fp_a, aPackage[i].begin, SEEK_SET);
-            loc_a = aPackage[i].end - aPackage[i].begin;
-            if (aPackage[i-1].ack == aPackage[i].ack && aPackage[i-1].seq == aPackage[i].seq) {
+            fseek(fp_a, a_Package[i].begin, SEEK_SET);
+            loc_a = a_Package[i].end - a_Package[i].begin;
+            if (a_Package[i - 1].ack == a_Package[i].ack && a_Package[i - 1].seq == a_Package[i].seq) {
                 i++;
-                while (loc_a != 0)
-                {
+                while (loc_a != 0) {
                     ch = fgetc(fp_a);
                     fputc(ch, sort);
                     loc_a--;
                 }
-                fseek(fp_a, aPackage[i].begin, SEEK_SET);
-                loc_a = aPackage[i].end - aPackage[i].begin;
+                fseek(fp_a, a_Package[i].begin, SEEK_SET);
+                loc_a = a_Package[i].end - a_Package[i].begin;
             }
             i++;
             j++;
         }
     }
+//if one file finished ,write the rest
     while (i <= a_len) {
         //write file a
         printf("a_loc = %d\n", loc_a);
@@ -285,8 +290,8 @@ void sort_file(char src_path[], int a_len, char des_path[], int b_len) {
             fputc(ch, sort);
             loc_a--;
         }
-        fseek(fp_a, aPackage[i].begin, SEEK_SET);
-        loc_a = aPackage[i].end - aPackage[i].begin;
+        fseek(fp_a, a_Package[i].begin, SEEK_SET);
+        loc_a = a_Package[i].end - a_Package[i].begin;
         i++;
     }
     while (j <= b_len) {
@@ -296,8 +301,8 @@ void sort_file(char src_path[], int a_len, char des_path[], int b_len) {
             fputc(ch, sort);
             loc_b--;
         }
-        fseek(fp_b, bPackage[j].begin, SEEK_SET);
-        loc_b = bPackage[j].end - bPackage[j].begin;
+        fseek(fp_b, b_Package[j].begin, SEEK_SET);
+        loc_b = b_Package[j].end - b_Package[j].begin;
         j++;
     }
     fclose(sort);
@@ -306,7 +311,7 @@ void sort_file(char src_path[], int a_len, char des_path[], int b_len) {
     printf("merge complete!\n");
 };
 
-
+//set aPackage[]
 void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *packet_content) {
     printf("Analysis packet %d!\n", packet_number);
     struct tcp_header *tcp_protocol;
@@ -324,6 +329,7 @@ void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
     packet_number++;
 }
 
+//set bPackage[]
 void analysis_b(u_char *argument, struct pcap_pkthdr *packet_header, u_char *packet_content) {
     printf("packet length:%d!\n", packet_header->len);
     printf("Analysis packet %d!\n", packet_number);
@@ -350,9 +356,8 @@ int main() {
     bpf_u_int32 net_ip;
     char *bpf_filter_string = " ";
 //    disorder_file("/home/extract2_change.cap", "/home/extract2.cap", aPackage);
-//    out_pcap = pcap_dump_open(pcap_handle, "/home/extract2.cap");
 
-//sort a.cap
+//sort disordered a.cap
     pcap_handle = pcap_open_offline("/home/extract1_change.cap", error_content);
 
     pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
@@ -367,7 +372,7 @@ int main() {
         printf("length = %d\n", aPackage[k].length);
     }
     packet_number = 0;
-//sort b.cap
+//sort disordered b.cap
     pcap_handle = pcap_open_offline("/home/extract2_change.cap", error_content);
 
     pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
@@ -382,7 +387,9 @@ int main() {
         printf("seq: %u, ack: %u\n", bPackage[k].seq, bPackage[k].ack);
         printf("length = %d\n", bPackage[k].length);
     }
-    sort_file("/home/extract2_change.cap", aPacket_number, "/home/extract1_change.cap", bPacket_number);
+//sort and merge 2 file
+    sort_file("/home/extract2_change.cap", bPacket_number, bPackage, "/home/extract1_change.cap", aPacket_number,
+              aPackage);
     return 0;
 }
 

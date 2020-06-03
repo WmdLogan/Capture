@@ -32,6 +32,7 @@ struct ip_header {
     struct in_addr ip_destination_address;
     u_int i_ip_destination_address;
 };
+
 struct tcp_header {
     u_int16_t tcp_source_port;
     u_int16_t tcp_destination_port;
@@ -55,7 +56,7 @@ struct udp_header {
     u_int16_t udp_checksum;
 };
 pcap_dumper_t *out_pcap;
-
+//merge file_path after merged_path
 void merge_file(char merged_path[], char file_path[]) {
     FILE *merged;
     FILE *fp;
@@ -69,7 +70,6 @@ void merge_file(char merged_path[], char file_path[]) {
     if ((merged = fopen(merged_path, "a+")) == NULL) {
         exit(0);
     }
-
 //merge file
     char ch;
     while ((ch = fgetc(fp)) != EOF) {
@@ -93,8 +93,7 @@ void analysis(u_char *argument,  struct pcap_pkthdr *packet_header,  u_char *pac
 int main() {
     char bpf_filter_string[1000];
     char exact[30];
-
-// 多条五元组
+//3 piece of wu-yuan-zu
   /*  pid_t pid; //fpid表示fork函数返回的值
     pid = fork();
     if (pid < 0)
@@ -117,7 +116,7 @@ int main() {
         strcpy(bpf_filter_string, "tcp port 80");
         strcpy(exact, "/home/extract2.cap");
     }*/
-//    original!!!!!!!!!!!!
+//single wu-yuan-zu
     strcpy(bpf_filter_string, "host 192.168.2.101 or host 218.7.43.8 and tcp port 47448");
     strcpy(exact, "/home/extract7.cap");
     char *final_path;//拼成文件名
@@ -141,10 +140,12 @@ int main() {
                     continue;
             } else {
                 loc++;
+//filter last time's file
                 if (loc <= count) {
                     open_flag = 1;
                     continue;
                 }
+//new file in this time
                 count++;
                 sprintf(final_path, "%s%s", "/home/packets/", ent->d_name);
                 printf("analysing :%s\n", final_path);
@@ -158,7 +159,6 @@ int main() {
                 }
 
                 pcap_loop(pcap_handle, -1, analysis, NULL);
-                printf("hahahahahaha\n");
                 pcap_close(pcap_handle);
             }
         }
