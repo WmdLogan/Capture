@@ -104,20 +104,20 @@ int main() {
         if (pid1 < 0)
             printf("error in fork!");
         else if (pid1 == 0) {//child
-            strcpy(bpf_filter_string, "src host 192.168.2.101 and dst host 218.7.43.44 and src port 47448 and dst port 80");
+            strcpy(bpf_filter_string, "src host 192.168.2.101 and dst host 210.30.199.4 and src port 39952 and dst port 80");
             strcpy(exact, "/home/src.cap");
         }
         else {//grandchild
-            strcpy(bpf_filter_string, "dst host 192.168.2.101 and src host 218.7.43.44 and dst port 47448 and src port 80");
+            strcpy(bpf_filter_string, "dst host 192.168.2.101 and src host 210.30.199.4 and dst port 39952 and src port 80");
             strcpy(exact, "/home/dst.cap");
         }
     }
     else {//father
-        strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.44 and tcp port 47448 and port 80");
+        strcpy(bpf_filter_string, "host 192.168.2.101 and host 210.30.199.4 and tcp port 39952 and port 80");
         strcpy(exact, "/home/all.cap");
     }
 //single wu-yuan-zu
-/*    strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.8 and tcp port 52802 and port 80");
+/*    strcpy(bpf_filter_string, "host 192.168.2.101");
     strcpy(exact, "/home/test1.cap");*/
     char *final_path;//拼成文件名
     final_path = (char *) malloc(sizeof(char) * 30);

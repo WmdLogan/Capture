@@ -54,12 +54,6 @@ Capture.h
 hash.h
 /home/logan/CLionProjects/Capture/hash.h
 
-/home/logan/CLionProjects/Capture/Configure.c
-stdio.h
--
-Configure.h
-/home/logan/CLionProjects/Capture/Configure.h
-
 /home/logan/CLionProjects/Capture/delete_hash.c
 delete_hash.h
 /home/logan/CLionProjects/Capture/delete_hash.h
