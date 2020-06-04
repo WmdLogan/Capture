@@ -104,16 +104,16 @@ int main() {
         if (pid1 < 0)
             printf("error in fork!");
         else if (pid1 == 0) {//child
-            strcpy(bpf_filter_string, "src host 192.168.2.101 and dst host 210.30.199.4 and src port 39952 and dst port 80");
+            strcpy(bpf_filter_string, "src host 192.168.2.101 and dst host 34.211.106.52 and src port 34258 and dst port 443");
             strcpy(exact, "/home/src.cap");
         }
         else {//grandchild
-            strcpy(bpf_filter_string, "dst host 192.168.2.101 and src host 210.30.199.4 and dst port 39952 and src port 80");
+            strcpy(bpf_filter_string, "dst host 192.168.2.101 and src host 34.211.106.52 and dst port 34258 and src port 443");
             strcpy(exact, "/home/dst.cap");
         }
     }
     else {//father
-        strcpy(bpf_filter_string, "host 192.168.2.101 and host 210.30.199.4 and tcp port 39952 and port 80");
+        strcpy(bpf_filter_string, "host 192.168.2.101 and host 34.211.106.52 and tcp port 34258 and port 443");
         strcpy(exact, "/home/all.cap");
     }
 //single wu-yuan-zu

@@ -41,75 +41,40 @@ int flag = 0;
 
 //sort single cap
 void sort_cap(package *pac, const int len) {
-    int i, count = 0, flag = 3, length;
-    u_int key;
-    for (i = 0; i < len; i++) {
-        if (pac[i].seq == pac[i + 1].seq) {
-            count++;
-            if (count == 2) {
-                flag = 0;
-                break;
-            }
-            continue;
-        } else if (pac[i].ack == pac[i + 1].ack) {
-            count++;
-            if (count == 2) {
-                flag = 1;
-                break;
-            }
-            continue;
-        } else {
-            count = 0;
-        }
-    }
+    int i, length;
+    u_int ack;
+    for (i = 1; i < len; i++) {
+        package p = pac[i];
+        length = pac[i].length;
+        ack = pac[i].ack;
+        int j = i - 1;
+        while (pac[j].seq >= p.seq && j >= 0) {
+            // len/ack bigger ,later
+            if (pac[j].seq == p.seq) {
+                if (pac[j].ack < ack) {
+                    j--;
+                    continue;
+                } else if (pac[j].ack == ack && pac[j].length < length) {
+                    j--;
+                    continue;
+                }
 
-    if (flag == 1) {//sort by seq
-        for (i = 1; i < len; i++) {
-            package p = pac[i];
-            length = pac[i].length;
-            int j = i - 1;
-            while (pac[j].seq >= p.seq && j >= 0) {
-                if (pac[j].seq == p.seq && pac[j].length < length) {
-                    //len bigger ,later
-                    continue;
-                }
-                pac[j + 1].seq = pac[j].seq;
-                pac[j + 1].ack = pac[j].ack;
-                pac[j + 1].length = pac[j].length;
-                pac[j + 1].begin = pac[j].begin;
-                pac[j + 1].end = pac[j].end;
-                j--;
             }
-            pac[j + 1].ack = p.ack;
-            pac[j + 1].length = p.length;
-            pac[j + 1].seq = p.seq;
-            pac[j + 1].begin = p.begin;
-            pac[j + 1].end = p.end;
+            pac[j + 1].seq = pac[j].seq;
+            pac[j + 1].ack = pac[j].ack;
+            pac[j + 1].length = pac[j].length;
+            pac[j + 1].begin = pac[j].begin;
+            pac[j + 1].end = pac[j].end;
+            j--;
         }
-    } else {//sort by ack
-        for (i = 1; i < len; i++) {
-            package p = pac[i];
-            length = pac[i].length;
-            int j = i - 1;
-            while (pac[j].ack >= p.ack && j >= 0) {
-                if (pac[j].ack == p.ack && pac[j].length < length) {
-                    //len bigger ,later
-                    continue;
-                }
-                pac[j + 1].seq = pac[j].seq;
-                pac[j + 1].ack = pac[j].ack;
-                pac[j + 1].length = pac[j].length;
-                pac[j + 1].begin = pac[j].begin;
-                pac[j + 1].end = pac[j].end;
-                j--;
-            }
-            pac[j + 1].ack = p.ack;
-            pac[j + 1].length = p.length;
-            pac[j + 1].seq = p.seq;
-            pac[j + 1].begin = p.begin;
-            pac[j + 1].end = p.end;
-        }
+        pac[j + 1].ack = p.ack;
+        pac[j + 1].length = p.length;
+        pac[j + 1].seq = p.seq;
+        pac[j + 1].begin = p.begin;
+        pac[j + 1].end = p.end;
     }
+    printf("sort end!\n");
+
 }
 
 //disorder file
@@ -141,7 +106,7 @@ void disorder_file(char origin_path[], char disorder_path[], package *pac) {
     }
     fclose(merged);
     fclose(fp);
-    printf("merge complete!\n");
+    printf("disorder complete!\n");
 };
 
 //sort and merge two cap
@@ -384,8 +349,7 @@ int main() {
 
     pcap_loop(pcap_handle, -1, analysis_a, NULL);
     pcap_close(pcap_handle);
-    aPacket_number = packet_number;
-    disorder_file("/home/src.cap", "/home/src_change.cap",dis_aPackage);
+    disorder_file("/home/src.cap", "/home/src_change.cap", dis_aPackage);
     packet_number = 0;
 
 //disorder dst.cap
@@ -396,8 +360,7 @@ int main() {
 
     pcap_loop(pcap_handle, -1, analysis_b, NULL);
     pcap_close(pcap_handle);
-    aPacket_number = packet_number;
-    disorder_file("/home/dst.cap", "/home/dst_change.cap",dis_bPackage);
+    disorder_file("/home/dst.cap", "/home/dst_change.cap", dis_bPackage);
     packet_number = 0;
 
     flag = 1;
