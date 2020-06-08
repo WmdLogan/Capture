@@ -26,6 +26,7 @@ typedef struct {
     u_int seq;
     u_int ack;
     u_int length;
+    u_int fin;
 } package;
 
 
@@ -42,11 +43,12 @@ int flag = 0;
 //sort single cap
 void sort_cap(package *pac, const int len) {
     int i, length;
-    u_int ack;
+    u_int ack,fin;
     for (i = 1; i < len; i++) {
         package p = pac[i];
         length = pac[i].length;
         ack = pac[i].ack;
+        fin = pac[i].fin;
         int j = i - 1;
         while (pac[j].seq >= p.seq && j >= 0) {
             // len/ack bigger ,later
@@ -57,8 +59,10 @@ void sort_cap(package *pac, const int len) {
                 } else if (pac[j].ack == ack && pac[j].length < length) {
                     j--;
                     continue;
+                }else if (pac[j].ack == ack && pac[j].length == length && pac[j].fin < fin) {
+                    j--;
+                    continue;
                 }
-
             }
             pac[j + 1].seq = pac[j].seq;
             pac[j + 1].ack = pac[j].ack;
@@ -156,16 +160,16 @@ void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], 
 //find a's next start loc and packet length
             fseek(fp_a, a_Package[i].begin, SEEK_SET);
             loc_a = a_Package[i].end - a_Package[i].begin;
-//if next packet ack,seq same ,write next packet
+
+//if next a's next ack,seq same ,write next a
             if (a_Package[i - 1].ack == a_Package[i].ack && a_Package[i - 1].seq == a_Package[i].seq) {
                 i++;
-                while (loc_a != 0) {
-                    ch = fgetc(fp_a);
-                    fputc(ch, sort);
-                    loc_a--;
-                }
-                fseek(fp_a, a_Package[i].begin, SEEK_SET);
-                loc_a = a_Package[i].end - a_Package[i].begin;
+                continue;
+            }
+//if b's seq != a's ack .write next a
+            if (a_Package[i - 1].ack != 0 && a_Package[i - 1].ack != b_Package[j - 1].seq) {
+                i++;
+                continue;
             }
 //write file b's packet, similar with a
             printf("b_loc = %d\n", loc_b);
@@ -176,7 +180,7 @@ void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], 
             }
             fseek(fp_b, b_Package[j].begin, SEEK_SET);
             loc_b = b_Package[j].end - b_Package[j].begin;
-            if (b_Package[j - 1].ack == b_Package[j].ack && b_Package[j - 1].seq == b_Package[j].seq) {
+            while (b_Package[j - 1].ack == b_Package[j].ack && b_Package[j - 1].seq == b_Package[j].seq) {
                 j++;
                 while (loc_b != 0) {
                     ch = fgetc(fp_b);
@@ -214,17 +218,18 @@ void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], 
                 fputc(ch, sort);
                 loc_b--;
             }
+//find b's next start loc and packet length
             fseek(fp_b, b_Package[j].begin, SEEK_SET);
             loc_b = b_Package[j].end - b_Package[j].begin;
+//if next b's next ack,seq same ,write next b
             if (b_Package[j - 1].ack == b_Package[j].ack && b_Package[j - 1].seq == b_Package[j].seq) {
                 j++;
-                while (loc_b != 0) {
-                    ch = fgetc(fp_b);
-                    fputc(ch, sort);
-                    loc_b--;
-                }
-                fseek(fp_b, b_Package[j].begin, SEEK_SET);
-                loc_b = b_Package[j].end - b_Package[j].begin;
+                continue;
+            }
+//if a's seq != b's ack .write next b
+            if (b_Package[i - 1].ack != 0 && b_Package[i - 1].ack != a_Package[j - 1].seq) {
+                j++;
+                continue;
             }
 //write file a's packet
             printf("a_loc = %d\n", loc_a);
@@ -235,7 +240,7 @@ void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], 
             }
             fseek(fp_a, a_Package[i].begin, SEEK_SET);
             loc_a = a_Package[i].end - a_Package[i].begin;
-            if (a_Package[i - 1].ack == a_Package[i].ack && a_Package[i - 1].seq == a_Package[i].seq) {
+            while (a_Package[i - 1].ack == a_Package[i].ack && a_Package[i - 1].seq == a_Package[i].seq) {
                 i++;
                 while (loc_a != 0) {
                     ch = fgetc(fp_a);
@@ -281,7 +286,7 @@ void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], 
 
 //set aPackage[]
 void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *packet_content) {
-    printf("Analysis packet %d!\n", packet_number);
+    printf("\nAnalysis packet %d!\n", packet_number);
     struct tcp_header *tcp_protocol;
     tcp_protocol = (struct tcp_header *) (packet_content + 14 + 20);
     static unsigned int location = 24;
@@ -296,6 +301,12 @@ void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
         dis_aPackage[packet_number].length = packet_header->len;
     }
     if (flag == 1) {
+        u_int flags=tcp_protocol->tcp_flags;
+        if(flags & 0x01){
+            aPackage[packet_number].fin = 1;
+            printf("packet fin = 1\n");
+        }
+        else{ aPackage[packet_number].fin = 0; }
         aPackage[packet_number].begin = location;
         location += packet_header->len + 16;
         aPackage[packet_number].end = location;
@@ -308,7 +319,7 @@ void analysis_a(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
 
 //set bPackage[]
 void analysis_b(u_char *argument, struct pcap_pkthdr *packet_header, u_char *packet_content) {
-    printf("packet length:%d!\n", packet_header->len);
+    printf("\npacket length:%d!\n", packet_header->len);
     printf("Analysis packet %d!\n", packet_number);
     struct tcp_header *tcp_protocol;
     tcp_protocol = (struct tcp_header *) (packet_content + 14 + 20);
@@ -324,6 +335,12 @@ void analysis_b(u_char *argument, struct pcap_pkthdr *packet_header, u_char *pac
         dis_bPackage[packet_number].length = packet_header->len;
     }
     if (flag == 1) {
+        u_int flags=tcp_protocol->tcp_flags;
+        if(flags & 0x01){
+            bPackage[packet_number].fin = 1;
+            printf("packet fin = 1\n");
+        }
+        else{ bPackage[packet_number].fin = 0; }
         bPackage[packet_number].begin = location;
         location += packet_header->len + 16;
         bPackage[packet_number].end = location;
