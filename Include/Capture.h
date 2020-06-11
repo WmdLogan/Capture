@@ -84,9 +84,10 @@ extern char src_add[16];
 extern char des_add[16];
 extern char s_port[5];
 extern char d_port[5];
-extern char file_size[5];//最大分片大小
+extern char file_size[8];//最大分片大小
 extern char path[50];//保存路径
 extern int file_time;//最大记录时长
+extern pthread_mutex_t hash_mutex;
 
 //file 分片保存用
 extern int packet_number;//给所有捕获的包计数

@@ -8,6 +8,7 @@ void *hash_analysis() {
     printf("udp delete start\n");
     while (flag < 1) {
         for (int i = 0; i < 65535; i++) {
+            pthread_mutex_lock(&hash_mutex);
             if (TCAP_hash[i].first != NULL) {
                 struct timeval end;
                 gettimeofday(&end, NULL);
@@ -16,6 +17,7 @@ void *hash_analysis() {
                     delete_hash(TCAP_hash, TCAP_hash[i].first->tupl4);
                 }
             }
+            pthread_mutex_unlock(&hash_mutex);
         }
     }
 }

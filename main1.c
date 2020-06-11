@@ -69,17 +69,19 @@ char src_add[16];
 char des_add[16];
 char s_port[5];
 char d_port[5];
-char file_size[5];//最大分片大小
+char file_size[8];//最大分片大小
 char path[50];//保存路径
 int file_time;//最大记录时长
+pthread_mutex_t hash_mutex;
 
 int main() {
 //启动检查更新线程
     pthread_t check;
     pthread_t delete;
-    pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
     init_hashlist(TCAP_hash);
+    pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
     pthread_create(&check, NULL, (void *) check_update, NULL);
+    pthread_mutex_init(&hash_mutex, NULL);
 
     int up_key = 0;//网卡修改后的标志位
     char error_content[PCAP_ERRBUF_SIZE];
@@ -87,7 +89,7 @@ int main() {
     char bpf_filter_string[] = "";
     bpf_u_int32 net_mask;
     bpf_u_int32 net_ip;
-Restart:
+    Restart:
 //网卡修改，需要重新给pcap设置网卡
     if (up_key == 1) {
         if (strcmp(net_interface, "") != 0) {

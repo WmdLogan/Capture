@@ -31,11 +31,11 @@ typedef struct {
 
 
 pcap_dumper_t *out_pcap;
-package aPackage[1000];
-package dis_aPackage[1000];
+package aPackage[65535];
+package dis_aPackage[65535];
 int aPacket_number = 0;
-package bPackage[1000];
-package dis_bPackage[1000];
+package bPackage[65535];
+package dis_bPackage[65535];
 int bPacket_number = 0;
 int packet_number = 0;
 int flag = 0;

@@ -6,6 +6,8 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
     struct udp_header *udp_protocol;
     struct tcp_header *tcp_protocol;
     struct ip_header *ip_protocol;
+    char src_ip[16];
+    char dst_ip[16];
     u_short source_port;
     u_short destination_port;
     printf("\n\n\nThe %d Ethernet packet is captured.\n", packet_number);
@@ -13,11 +15,13 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
     ethernet_protocol = (struct ether_header *) packet_content;
     if (ntohs(ethernet_protocol->ether_type) == 0x0800) {
         ip_protocol = (struct ip_header *) (packet_content + 14);
-        printf("Source address: %s\n", inet_ntoa(ip_protocol->ip_source_address));
-        printf("Destination address: %s\n", inet_ntoa(ip_protocol->ip_destination_address));
+        strcpy(src_ip, inet_ntoa(ip_protocol->ip_source_address));
+        strcpy(dst_ip, inet_ntoa(ip_protocol->ip_destination_address));
+        printf("Source address: %s\n", src_ip);
+        printf("Destination address: %s\n", dst_ip);
 //过滤IP地址
-        if ((strcmp(inet_ntoa(ip_protocol->ip_source_address), src_add) == 0 || strcmp(src_add, "") == 0) &&
-            (strcmp(inet_ntoa(ip_protocol->ip_destination_address), des_add) == 0 || strcmp(des_add, "") == 0))
+        if ((strcmp(src_ip, src_add) == 0 || strcmp(src_add, "") == 0) &&
+            (strcmp(dst_ip, des_add) == 0 || strcmp(des_add, "") == 0))
 //如果IP符合，获取端口
         {
             printf("IP Qualified!!!!!\n");
@@ -48,7 +52,9 @@ void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header,
             {
                 printf("Port Qualified!!!!!\n");
 //插入哈希表
+                pthread_mutex_lock(&hash_mutex);
                 insert_hash(packet_content, TCAP_hash, len);
+                pthread_mutex_unlock(&hash_mutex);
 //标志位为0，创建第一个文件，开始记录时间
                 if (first_file_flag == 0) {
                     out_pcap = pcap_dump_open(pcap_handle, final_path);
