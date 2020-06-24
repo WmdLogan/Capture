@@ -50,18 +50,6 @@ sys/time.h
 Capture.h
 ../Include/Capture.h
 
-/home/logan/CLionProjects/Capture/Capture.c
-hash.h
-/home/logan/CLionProjects/Capture/hash.h
-
-/home/logan/CLionProjects/Capture/delete_hash.c
-delete_hash.h
-/home/logan/CLionProjects/Capture/delete_hash.h
-
-/home/logan/CLionProjects/Capture/hash.c
-hash.h
-/home/logan/CLionProjects/Capture/hash.h
-
 /home/logan/CLionProjects/Capture/main.c
 delete_hash.h
 /home/logan/CLionProjects/Capture/delete_hash.h

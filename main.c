@@ -73,10 +73,31 @@ char file_size[8];//最大分片大小
 char path[50];//保存路径
 int file_time;//最大记录时长
 pthread_mutex_t hash_mutex;
-
+//dump all
+void capture_callback6(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
+    printf("new\n");
+    pcap_dump((u_char *) out_pcap, packet_header, packet_content);
+    pcap_dump_flush(out_pcap);
+}
 int main() {
+    printf("ddddd");
+    char error_content[PCAP_ERRBUF_SIZE];
+    struct bpf_program bpf_filter;
+    bpf_u_int32 net_ip;
+    bpf_u_int32 net_mask;
+    char *bpf_filter_string="";
+    pcap_lookupnet("ens33", &net_ip, &net_mask, error_content);
+    pcap_handle = pcap_open_live("ens33", BUFSIZ, 1, 1, error_content);
+
+    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
+    pcap_setfilter(pcap_handle, &bpf_filter);
+    out_pcap = pcap_dump_open(pcap_handle, "/home/all.cap");
+    pcap_loop(pcap_handle, -1, capture_callback6, NULL);
+    pcap_dump_close(out_pcap);
+    pcap_close(pcap_handle);
+    return 0;
 //启动检查更新线程
-    pthread_t check;
+    /*pthread_t check;
     pthread_t delete;
     init_hashlist(TCAP_hash);
     pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
@@ -150,6 +171,6 @@ Restart:
     printf("end!!!!!!!\n");
     pcap_close(pcap_handle);
     printf("restart\n");
-    goto Restart;
+    goto Restart;*/
     return 0;
 }
