@@ -73,12 +73,27 @@ char file_size[8];//最大分片大小
 char path[50];//保存路径
 int file_time;//最大记录时长
 pthread_mutex_t hash_mutex;
+pthread_mutex_t queue_mutex;
+
+void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
+    static int num = 1;
+    printf("The %d\n", num);
+    num++;
+    pthread_mutex_lock(&queue_mutex);
+    en_queue(cap_queue, packet_header, packet_content);
+    pthread_mutex_unlock(&queue_mutex);
+}
 
 int main() {
 //启动检查更新线程
     pthread_t check;
     pthread_t delete;
+    pthread_t p_queue;
     init_hashlist(TCAP_hash);
+    cap_queue = (Queue *) malloc(sizeof(Queue));
+    init_queue(cap_queue);
+
+    pthread_create(&p_queue,NULL,(void*)cap_analysis,NULL);
     pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
     pthread_create(&check, NULL, (void *) check_update, NULL);
     pthread_mutex_init(&hash_mutex, NULL);

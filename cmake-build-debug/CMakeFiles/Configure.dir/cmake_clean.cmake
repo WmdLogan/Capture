@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Configure.dir/Configure.c.o"
-  "Configure"
+  "CMakeFiles/Configure.dir/Configure.c.obj"
+  "Configure.exe"
+  "Configure.exe.manifest"
   "Configure.pdb"
+  "libConfigure.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

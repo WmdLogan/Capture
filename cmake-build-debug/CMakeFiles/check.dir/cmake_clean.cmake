@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/check.dir/Configure.c.o"
-  "CMakeFiles/check.dir/check_update.c.o"
-  "check"
+  "CMakeFiles/check.dir/Configure.c.obj"
+  "CMakeFiles/check.dir/check_update.c.obj"
+  "check.exe"
+  "check.exe.manifest"
   "check.pdb"
+  "libcheck.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

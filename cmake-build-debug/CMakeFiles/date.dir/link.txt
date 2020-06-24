@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/date.dir/dateServerMultiProcesses.c.o  -o date  -lpcap -lccl 

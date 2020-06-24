@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/ad.dir/main.c.o CMakeFiles/ad.dir/Capture.c.o CMakeFiles/ad.dir/Configure.c.o CMakeFiles/ad.dir/hash.c.o CMakeFiles/ad.dir/delete_hash.c.o  -o ad  -lpcap -lccl -lpthread 

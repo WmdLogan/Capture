@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/logan/CLionProjects/Capture/Get_Update_Time.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/get_time.dir/Get_Update_Time.c.o"
+  "D:/CLionProjects/Capture/Get_Update_Time.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/get_time.dir/Get_Update_Time.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

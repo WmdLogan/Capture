@@ -5,6 +5,8 @@
 #include "pthread.h"
 #include <stdlib.h>
 #include "Configure.h"
+#include "Queue.h"
+
 //pcap 捕包初始化
 extern pcap_t *pcap_handle;
 extern pcap_dumper_t *out_pcap;
@@ -88,6 +90,7 @@ extern char file_size[8];//最大分片大小
 extern char path[50];//保存路径
 extern int file_time;//最大记录时长
 extern pthread_mutex_t hash_mutex;
+extern pthread_mutex_t queue_mutex;
 
 //file 分片保存用
 extern int packet_number;//给所有捕获的包计数
@@ -99,4 +102,4 @@ extern char* final_path;//拼成文件保存的路径以及给保存文件命名
 extern unsigned int current_size;//计算保存文件加上当前数据包的大小，若超过file_size，打开新文件保存
 
 
-void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content);
+void cap_analysis();

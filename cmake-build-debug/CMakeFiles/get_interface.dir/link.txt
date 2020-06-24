@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/get_interface.dir/get_interface.c.o  -o get_interface  -lpcap 

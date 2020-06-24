@@ -4,11 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/logan/CLionProjects/Capture/Capture.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/Capture.c.o"
-  "/home/logan/CLionProjects/Capture/Configure.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/Configure.c.o"
-  "/home/logan/CLionProjects/Capture/delete_hash.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/delete_hash.c.o"
-  "/home/logan/CLionProjects/Capture/hash.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/hash.c.o"
-  "/home/logan/CLionProjects/Capture/main1.c" "/home/logan/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/main1.c.o"
+  "D:/CLionProjects/Capture/Capture.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/Capture.c.obj"
+  "D:/CLionProjects/Capture/Configure.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/Configure.c.obj"
+  "D:/CLionProjects/Capture/Queue.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/Queue.c.obj"
+  "D:/CLionProjects/Capture/delete_hash.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/delete_hash.c.obj"
+  "D:/CLionProjects/Capture/hash.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/hash.c.obj"
+  "D:/CLionProjects/Capture/main1.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap1.dir/main1.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

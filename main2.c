@@ -1,6 +1,6 @@
 //#include "Capture.h"
 #include "delete_hash.h"
-#include "Queue.h"
+
 
 //检查配置文件更新线程
 void check_update() {
@@ -55,7 +55,6 @@ void check_update() {
         }
     }
 }
-
 pcap_t *pcap_handle;
 pcap_dumper_t *out_pcap;
 int packet_number = 1;
@@ -63,7 +62,7 @@ struct stat cap_buf;//获取保存文件创建时间
 time_t rawtime;
 int first_file_flag = 0;//标志位，0代表判断需要打开第一个文件
 int next_file = 1;//给保存文件命名的编号
-char *final_path;//拼成文件保存的路径以及给保存文件命名，格式为file_path + .cap + next_file
+char* final_path;//拼成文件保存的路径以及给保存文件命名，格式为file_path + .cap + next_file
 unsigned int current_size = 24;//计算保存文件加上当前数据包的大小，若超过file_size，打开新文件保存
 char net_interface[5];
 char src_add[16];
@@ -76,43 +75,25 @@ int file_time;//最大记录时长
 pthread_mutex_t hash_mutex;
 pthread_mutex_t queue_mutex;
 
-//dump all
-void capture_callback6(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
+void capture_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content) {
     static int num = 1;
     printf("The %d\n", num);
     num++;
-    pcap_dump((u_char *) out_pcap, packet_header, packet_content);
-    pcap_dump_flush(out_pcap);
-
+    pthread_mutex_lock(&queue_mutex);
+    en_queue(cap_queue, packet_header, packet_content);
+    pthread_mutex_unlock(&queue_mutex);
 }
 
 int main() {
+//启动检查更新线程
+    pthread_t check;
+    pthread_t delete;
+    pthread_t p_queue;
+    init_hashlist(TCAP_hash);
     cap_queue = (Queue *) malloc(sizeof(Queue));
     init_queue(cap_queue);
-    char error_content[PCAP_ERRBUF_SIZE];
-    struct bpf_program bpf_filter;
-    bpf_u_int32 net_ip;
-    bpf_u_int32 net_mask;
-    char *bpf_filter_string = "";
-    pcap_lookupnet("ens33", &net_ip, &net_mask, error_content);
-    pcap_handle = pcap_open_live("ens33", BUFSIZ, 1, 1, error_content);
 
-    pcap_compile(pcap_handle, &bpf_filter, bpf_filter_string, 0, net_ip);
-    pcap_setfilter(pcap_handle, &bpf_filter);
-    out_pcap = pcap_dump_open(pcap_handle, "/home/all.cap");
-    pthread_mutex_init(&queue_mutex, NULL);
-//启动queue线程
-/*    pthread_t p_queue;
-    pthread_create(&p_queue,NULL,(void*)queue,NULL);*/
-
-    pcap_loop(pcap_handle, -1, capture_callback6, NULL);
-    pcap_dump_close(out_pcap);
-    pcap_close(pcap_handle);
-    return 0;
-//启动检查更新线程
-    /*pthread_t check;
-    pthread_t delete;
-    init_hashlist(TCAP_hash);
+    pthread_create(&p_queue,NULL,(void*)cap_analysis,NULL);
     pthread_create(&delete,NULL,(void*)hash_analysis,NULL);
     pthread_create(&check, NULL, (void *) check_update, NULL);
     pthread_mutex_init(&hash_mutex, NULL);
@@ -123,7 +104,7 @@ int main() {
     char bpf_filter_string[] = "";
     bpf_u_int32 net_mask;
     bpf_u_int32 net_ip;
-Restart:
+    Restart:
 //网卡修改，需要重新给pcap设置网卡
     if (up_key == 1) {
         if (strcmp(net_interface, "") != 0) {
@@ -184,6 +165,6 @@ Restart:
     printf("end!!!!!!!\n");
     pcap_close(pcap_handle);
     printf("restart\n");
-    goto Restart;*/
+    goto Restart;
     return 0;
 }

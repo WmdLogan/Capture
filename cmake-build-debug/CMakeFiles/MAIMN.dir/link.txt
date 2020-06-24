@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/MAIMN.dir/main.c.o CMakeFiles/MAIMN.dir/Capture.c.o CMakeFiles/MAIMN.dir/Configure.c.o CMakeFiles/MAIMN.dir/Tcp_Capture.c.o  -o MAIMN  -lpcap -lccl 

@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/Mul_Ethernet.dir/capture.c.o CMakeFiles/Mul_Ethernet.dir/Mul_Ethernet.c.o  -o Mul_Ethernet  -lpcap 
