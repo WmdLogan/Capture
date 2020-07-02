@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "D:/CLionProjects/Capture/Capture.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/Capture.c.obj"
   "D:/CLionProjects/Capture/Configure.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/Configure.c.obj"
-  "D:/CLionProjects/Capture/Queue.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/Queue.c.obj"
   "D:/CLionProjects/Capture/delete_hash.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/delete_hash.c.obj"
   "D:/CLionProjects/Capture/hash.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/hash.c.obj"
   "D:/CLionProjects/Capture/main.c" "D:/CLionProjects/Capture/cmake-build-debug/CMakeFiles/Final_Cap.dir/main.c.obj"

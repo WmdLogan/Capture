@@ -102,4 +102,4 @@ extern char* final_path;//拼成文件保存的路径以及给保存文件命名
 extern unsigned int current_size;//计算保存文件加上当前数据包的大小，若超过file_size，打开新文件保存
 
 
-void cap_analysis();
+void cap_analysis(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content);

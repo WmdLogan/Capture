@@ -8,7 +8,7 @@
 #include <sys/param.h>
 #include <pcap.h>
 
-#define MaxSize 2018
+#define MaxSize 999999
 typedef struct  {
     struct pcap_pkthdr *packet_header;
     u_char *packet_content;

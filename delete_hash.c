@@ -5,7 +5,7 @@
 
 void *hash_analysis() {
     int flag = 0;
-    printf("udp delete start\n");
+   // printf("udp delete start\n");
     while (flag < 1) {
         for (int i = 0; i < 65535; i++) {
             pthread_mutex_lock(&hash_mutex);

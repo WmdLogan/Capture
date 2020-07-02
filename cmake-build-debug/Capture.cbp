@@ -526,11 +526,6 @@
 		<Unit filename="D:/CLionProjects/Capture/Ip_Capture.c">
 			<Option target="Tcp_Capture"/>
 		</Unit>
-		<Unit filename="D:/CLionProjects/Capture/Queue.c">
-			<Option target="Final_Cap1"/>
-			<Option target="Final_Cap"/>
-			<Option target="Final_Cap2"/>
-		</Unit>
 		<Unit filename="D:/CLionProjects/Capture/Save_File.c">
 			<Option target="File"/>
 		</Unit>

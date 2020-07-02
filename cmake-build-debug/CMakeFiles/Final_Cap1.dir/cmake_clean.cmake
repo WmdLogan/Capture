@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Final_Cap1.dir/Capture.c.obj"
   "CMakeFiles/Final_Cap1.dir/Configure.c.obj"
-  "CMakeFiles/Final_Cap1.dir/Queue.c.obj"
   "CMakeFiles/Final_Cap1.dir/delete_hash.c.obj"
   "CMakeFiles/Final_Cap1.dir/hash.c.obj"
   "CMakeFiles/Final_Cap1.dir/main1.c.obj"

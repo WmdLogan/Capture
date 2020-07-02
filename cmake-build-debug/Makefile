@@ -478,39 +478,6 @@ Ip_Capture.c.s:
 	$(MAKE) -f CMakeFiles\Tcp_Capture.dir\build.make CMakeFiles/Tcp_Capture.dir/Ip_Capture.c.s
 .PHONY : Ip_Capture.c.s
 
-Queue.obj: Queue.c.obj
-
-.PHONY : Queue.obj
-
-# target to build an object file
-Queue.c.obj:
-	$(MAKE) -f CMakeFiles\Final_Cap1.dir\build.make CMakeFiles/Final_Cap1.dir/Queue.c.obj
-	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Queue.c.obj
-	$(MAKE) -f CMakeFiles\Final_Cap2.dir\build.make CMakeFiles/Final_Cap2.dir/Queue.c.obj
-.PHONY : Queue.c.obj
-
-Queue.i: Queue.c.i
-
-.PHONY : Queue.i
-
-# target to preprocess a source file
-Queue.c.i:
-	$(MAKE) -f CMakeFiles\Final_Cap1.dir\build.make CMakeFiles/Final_Cap1.dir/Queue.c.i
-	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Queue.c.i
-	$(MAKE) -f CMakeFiles\Final_Cap2.dir\build.make CMakeFiles/Final_Cap2.dir/Queue.c.i
-.PHONY : Queue.c.i
-
-Queue.s: Queue.c.s
-
-.PHONY : Queue.s
-
-# target to generate assembly for a file
-Queue.c.s:
-	$(MAKE) -f CMakeFiles\Final_Cap1.dir\build.make CMakeFiles/Final_Cap1.dir/Queue.c.s
-	$(MAKE) -f CMakeFiles\Final_Cap.dir\build.make CMakeFiles/Final_Cap.dir/Queue.c.s
-	$(MAKE) -f CMakeFiles\Final_Cap2.dir\build.make CMakeFiles/Final_Cap2.dir/Queue.c.s
-.PHONY : Queue.c.s
-
 Save_File.obj: Save_File.c.obj
 
 .PHONY : Save_File.obj
@@ -918,9 +885,6 @@ help:
 	@echo ... Ip_Capture.obj
 	@echo ... Ip_Capture.i
 	@echo ... Ip_Capture.s
-	@echo ... Queue.obj
-	@echo ... Queue.i
-	@echo ... Queue.s
 	@echo ... Save_File.obj
 	@echo ... Save_File.i
 	@echo ... Save_File.s
