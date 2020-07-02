@@ -40,31 +40,6 @@ int bPacket_number = 0;
 int packet_number = 0;
 int flag = 0;
 
-//sort single cap
-void sort_cap(package *pac, const int len) {
-    int i;
-    for (i = 1; i < len; i++) {
-        int j = i - 1;
-        package p = pac[i];
-        while (pac[j].seq >= p.seq && j >= 0) {
-            // len/ack bigger ,later
-            if (pac[j].seq == p.seq) {
-                if (pac[j].ack < p.ack) {
-                    break;
-                } else if (pac[j].ack == p.ack && pac[j].length < p.length) {
-                    break;
-                } else if (pac[j].ack == p.ack && pac[j].length == p.length && pac[j].fin < p.fin) {
-                    break;
-                }
-            }
-            pac[j + 1] = pac[j];
-            j--;
-        }
-        pac[j + 1] = p;
-    }
-    printf("sort end!\n");
-}
-
 //disorder file
 /*void disorder_file(char origin_path[], char disorder_path[], package *pac) {
     FILE *merged;
@@ -96,6 +71,31 @@ void sort_cap(package *pac, const int len) {
     fclose(fp);
     printf("disorder complete!\n");
 };*/
+
+//sort single cap
+void sort_cap(package *pac, const int len) {
+    int i;
+    for (i = 1; i < len; i++) {
+        int j = i - 1;
+        package p = pac[i];
+        while (pac[j].seq >= p.seq && j >= 0) {
+            // len/ack bigger ,later
+            if (pac[j].seq == p.seq) {
+                if (pac[j].ack < p.ack) {
+                    break;
+                } else if (pac[j].ack == p.ack && pac[j].length < p.length) {
+                    break;
+                } else if (pac[j].ack == p.ack && pac[j].length == p.length && pac[j].fin < p.fin) {
+                    break;
+                }
+            }
+            pac[j + 1] = pac[j];
+            j--;
+        }
+        pac[j + 1] = p;
+    }
+    printf("sort end!\n");
+}
 
 //sort and merge two cap
 void sort_file(char src_path[], int a_len, package *a_Package, char des_path[], int b_len, package *b_Package) {

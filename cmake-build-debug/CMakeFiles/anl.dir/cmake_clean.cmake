@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/anl.dir/analysis.c.obj"
-  "anl.exe"
-  "anl.exe.manifest"
+  "CMakeFiles/anl.dir/analysis.c.o"
+  "anl"
   "anl.pdb"
-  "libanl.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
