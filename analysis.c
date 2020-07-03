@@ -272,7 +272,7 @@ int main() {
     char exact[30];
     char sorted[30];
 //3 piece of wu-yuan-zu
-    pid_t pid; //fpid表示fork函数返回的值
+/*    pid_t pid; //fpid表示fork函数返回的值
     pid = fork();
     if (pid < 0)
         printf("error in fork!");
@@ -296,12 +296,12 @@ int main() {
         strcpy(bpf_filter_string, "host 192.168.2.101 and host 210.30.199.4 and tcp port 80 and port 59240");
         strcpy(exact, "/home/anl3.cap");
         strcpy(sorted, "/home/sort3.cap");
-    }
+    }*/
 
 //single wu-yuan-zu
-/*    strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.8 and tcp port 80 and port 54148");
+    strcpy(bpf_filter_string, "host 192.168.2.101 and host 218.7.43.8 and tcp port 80 and port 45332");
     strcpy(exact, "/home/anl1.cap");
-    strcpy(sorted, "/home/sort1.cap");*/
+    strcpy(sorted, "/home/sort1.cap");
     char *final_path;//拼成文件名
     final_path = (char *) malloc(sizeof(char) * 30);
     int count = 0;

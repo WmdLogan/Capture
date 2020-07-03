@@ -88,6 +88,7 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
     struct ip_hash_header *ip_protocol;
     switch (ethernet_type) {
         case 0x0800: {
+            printf("\n");
             ip_protocol = (struct ip_hash_header *) (packet_content + 14);
             addr.dest_ip = ip_protocol->i_ip_destination_address;
             addr.source_ip = ip_protocol->i_ip_source_address;
@@ -117,13 +118,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                         hashnode->mask = 0;
                         hashnode->ttl = (int) ip_protocol->ip_ttl;
                         hashnode->len = length;
-                        //printf("Source address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                        //printf("Destination address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                        //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
-                        //printf("ttl=%d\n", hashnode->ttl);
-                        //printf("number=%d\n", hashnode->number);
-                        //printf("len=%d\n", hashnode->len);
-                        //printf("average_len=%d\n", hashnode->len / hashnode->number);
+                        printf("Source address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                        printf("Destination address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                        printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
+                        printf("ttl=%d\n", hashnode->ttl);
+                        printf("number=%d\n", hashnode->number);
+                        printf("len=%d\n", hashnode->len);
+                        printf("average_len=%d\n", hashnode->len / hashnode->number);
                         return;
                     } else {
                         hashnode = Hashlist[hashkey].first;
@@ -136,13 +137,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                                 //printf("ip ttl=%d\n",ip_protocol->ip_ttl);
                                 hashnode->ttl = hashnode->ttl + (int) ip_protocol->ip_ttl;
                                 hashnode->len = hashnode->len + length;
-                                //printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                                //printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                                //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port,hashnode->tupl4.dest_port);
-                                //printf("ttl=%d\n", hashnode->ttl);
-                                //printf("number=%d\n", hashnode->number);
-                                //printf("len=%d\n", hashnode->len);
-                                //printf("!!average_len=%d\n", hashnode->len / hashnode->number);
+                                printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                                printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                                printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port,hashnode->tupl4.dest_port);
+                                printf("ttl=%d\n", hashnode->ttl);
+                                printf("number=%d\n", hashnode->number);
+                                printf("len=%d\n", hashnode->len);
+                                printf("average_len=%d\n", hashnode->len / hashnode->number);
 //                                if (flags & 0x08) { //printf("PSH\n"); }
                                 if (flags & 0x10) {
                                     //printf("ACK\n");
@@ -176,13 +177,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                         hashnode->mask = 0;
                         hashnode->ttl = ip_protocol->ip_ttl;
                         hashnode->len = length;
-                        //printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                        //printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                        //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
-                        //printf("ttl=d\n", hashnode->ttl);
-                        //printf("number=%d\n", hashnode->number);
-                        //printf("len=%d\n", hashnode->len);
-                        //printf("average_len=%d\n", hashnode->len / hashnode->number);
+                        printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                        printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                        printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
+                        printf("ttl=d\n", hashnode->ttl);
+                        printf("number=%d\n", hashnode->number);
+                        printf("len=%d\n", hashnode->len);
+                        printf("average_len=%d\n", hashnode->len / hashnode->number);
                         return;
                     }
                 }
@@ -207,13 +208,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                         hashnode->number = 1;
                         hashnode->ttl = ip_protocol->ip_ttl;
                         hashnode->len = length;
-                        //printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                        //printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                        //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
-                        //printf("ttl=%d\n", hashnode->ttl);
-                        //printf("number=%d\n", hashnode->number);
-                        //printf("len=%d\n", hashnode->len);
-                        //printf("average_len=%d\n", hashnode->len / hashnode->number);
+                        printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                        printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                        printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
+                        printf("ttl=%d\n", hashnode->ttl);
+                        printf("number=%d\n", hashnode->number);
+                        printf("len=%d\n", hashnode->len);
+                        printf("average_len=%d\n", hashnode->len / hashnode->number);
                         return;
                     } else {
                         hashnode = Hashlist[hashkey].first;
@@ -228,13 +229,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                                 hashnode->number = hashnode->number + 1;
                                 hashnode->ttl = hashnode->ttl + ip_protocol->ip_ttl;
                                 hashnode->len = hashnode->len + length;
-                                //printf("Source address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                                //printf("Destination address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                                //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
-                                //printf("ttl=%d\n", hashnode->ttl);
-                                //printf("number=%d\n", hashnode->number);
-                                //printf("len=%d\n", hashnode->len);
-                                //printf("!!average_len=%d\n", hashnode->len / hashnode->number);
+                                printf("Source address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                                printf("Destination address: %s\n", inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                                printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
+                                printf("ttl=%d\n", hashnode->ttl);
+                                printf("number=%d\n", hashnode->number);
+                                printf("len=%d\n", hashnode->len);
+                                printf("!!average_len=%d\n", hashnode->len / hashnode->number);
                                 return;
                             }
                             hashnode = hashnode->next;
@@ -250,13 +251,13 @@ void insert_hash(const u_char *packet_content, hash_list Hashlist, bpf_u_int32 l
                         hashnode->number = 1;
                         hashnode->ttl = ip_protocol->ip_ttl;
                         hashnode->len = length;
-                        //printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
-                        //printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
-                        //printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
-                        //printf("ttl=%d\n", hashnode->ttl);
-                        //printf("number=%d\n", hashnode->number);
-                        //printf("len=%d\n", hashnode->len);
-                        //printf("average_len=%d\n", hashnode->len / hashnode->number);
+                        printf("Source address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_source_address))));
+                        printf("Destination address: %s\n",inet_ntoa(*((struct in_addr *) &(ip_protocol->i_ip_destination_address))));
+                        printf("source port=%d dst port=%d\n", hashnode->tupl4.source_port, hashnode->tupl4.dest_port);
+                        printf("ttl=%d\n", hashnode->ttl);
+                        printf("number=%d\n", hashnode->number);
+                        printf("len=%d\n", hashnode->len);
+                        printf("average_len=%d\n", hashnode->len / hashnode->number);
                         return;
                     }
                 }

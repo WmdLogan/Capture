@@ -19,8 +19,13 @@ void check_update() {
         stat("/home/logan/CLionProjects/Capture/mytest1.conf", &configure_buf);
 //如果配置文件更新了，重新读配置文件使配置生效；若没更新，继续循环
         if (configure_buf.st_mtime != update_time) {
-           //printf("config update!!!\n");
+           printf("config update!!!\n");
             re = configure1();
+            unsigned long int src_ip_host;
+            unsigned long int dst_ip_host;
+            unsigned long int mask_ip_host;
+            unsigned long int src_mask_ip_host;
+            unsigned long int dst_mask_ip_host;
             update_time = configure_buf.st_mtime;
             while ((iter = ccl_iterate(&re)) != 0) {
 //若网卡修改了，跳出回调函数
@@ -30,28 +35,47 @@ void check_update() {
                     pcap_breakloop(pcap_handle);
                 }
                 if (strcmp(iter->key, "source_address") == 0) {
-                    strcpy(src_add, iter->value);
-                   //printf("配置s_add为:%s\n", src_add);
+                    struct in_addr src_ip;
+                    inet_aton(iter->value, &src_ip);
+                    src_ip_host = ntohl(src_ip.s_addr);
+//                    printf("sip=%lu\n", src_ip_host);
                 } else if (strcmp(iter->key, "destination_address") == 0) {
-                    strcpy(des_add, iter->value);
-                   //printf("配置d_add为:%s\n", des_add);
+                    struct in_addr des_ip;
+                    inet_aton(iter->value, &des_ip);
+                    dst_ip_host = ntohl(des_ip.s_addr);
+//                    printf("dip=%lu\n", dst_ip_host);
+                }  else if (strcmp(iter->key, "mask") == 0) {
+                    struct in_addr mask;
+                    inet_aton(iter->value, &mask);
+                    mask_ip_host = ntohl(mask.s_addr);
+//                    printf("mask=%lu\n", mask_ip_host);
                 } else if (strcmp(iter->key, "source_port") == 0) {
                     strcpy(s_port, iter->value);
-                   //printf("配置s_port为:%s\n", s_port);
+//                    printf("配置s_port为:%s\n", s_port);
                 } else if (strcmp(iter->key, "destination_port") == 0) {
                     strcpy(d_port, iter->value);
-                   //printf("配置d_port为:%s\n", d_port);
+//                    printf("配置d_port为:%s\n", d_port);
                 } else if (strcmp(iter->key, "file_size") == 0) {
                     strcpy(file_size, iter->value);
-                   //printf("配置file_size为%s\n", file_size);
+//                    printf("配置file_size为%s\n", file_size);
                 } else if (strcmp(iter->key, "save_path") == 0) {
                     strcpy(path, iter->value);
-                   //printf("配置save_path为%s\n", path);
+//                    printf("配置save_path为%s\n", path);
                 } else if (strcmp(iter->key, "file_time") == 0) {
                     file_time = atoi(iter->value);
-                   //printf("配置file_time为%d\n", file_time);
+//                    printf("配置file_time为%d\n", file_time);
                 }
             }
+            struct in_addr s_addr;
+            struct in_addr d_addr;
+            src_mask_ip_host = htonl(src_ip_host & mask_ip_host);
+            memcpy(&s_addr,&src_mask_ip_host,4);
+            strcpy(src_add, inet_ntoa(s_addr));
+            printf("%s\n", src_add);
+            dst_mask_ip_host = htonl(dst_ip_host & mask_ip_host);
+            memcpy(&d_addr,&dst_mask_ip_host,4);
+            strcpy(des_add, inet_ntoa(d_addr));
+            printf("%s\n", des_add);
         }
     }
 }
@@ -116,6 +140,11 @@ int main() {
 //程序启动，第一次让配置文件生效，这样check_update线程判断配置文件修改了再生效配置
     if (up_key == 0) {
         re = configure1();
+        unsigned long int src_ip_host;
+        unsigned long int dst_ip_host;
+        unsigned long int mask_ip_host;
+        unsigned long int src_mask_ip_host;
+        unsigned long int dst_mask_ip_host;
 //设置网卡
         while ((iter = ccl_iterate(&re)) != 0) {
             if (strcmp(iter->key, "net_interface") == 0) {
@@ -129,9 +158,20 @@ int main() {
                     pcap_handle = pcap_open_live("ens33", BUFSIZ, 1, 1, error_content);
                 }
             } else if (strcmp(iter->key, "source_address") == 0) {
-                strcpy(src_add, iter->value);
+                struct in_addr src_ip;
+                inet_aton(iter->value, &src_ip);
+                src_ip_host = ntohl(src_ip.s_addr);
+//                printf("sip=%lu\n", src_ip_host);
             } else if (strcmp(iter->key, "destination_address") == 0) {
-                strcpy(des_add, iter->value);
+                struct in_addr des_ip;
+                inet_aton(iter->value, &des_ip);
+                dst_ip_host = ntohl(des_ip.s_addr);
+//                printf("dip=%lu\n", dst_ip_host);
+            }  else if (strcmp(iter->key, "mask") == 0) {
+                struct in_addr mask;
+                inet_aton(iter->value, &mask);
+                mask_ip_host = ntohl(mask.s_addr);
+//                printf("mask=%lu\n", mask_ip_host);
             } else if (strcmp(iter->key, "source_port") == 0) {
                 strcpy(s_port, iter->value);
             } else if (strcmp(iter->key, "destination_port") == 0) {
@@ -150,6 +190,16 @@ int main() {
                 file_time = atoi(iter->value);
             }
         }
+        struct in_addr s_addr;
+        struct in_addr d_addr;
+        src_mask_ip_host = htonl(src_ip_host & mask_ip_host);
+        memcpy(&s_addr,&src_mask_ip_host,4);
+        strcpy(src_add, inet_ntoa(s_addr));
+        printf("%s\n", src_add);
+        dst_mask_ip_host = htonl(dst_ip_host & mask_ip_host);
+        memcpy(&d_addr,&dst_mask_ip_host,4);
+        strcpy(des_add, inet_ntoa(d_addr));
+        printf("%s\n", des_add);
         ccl_release(&re);
         up_key = 1;
     }
