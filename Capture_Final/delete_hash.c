@@ -5,9 +5,10 @@
 
 void *hash_analysis() {
     int flag = 0;
+    int i;
    // printf("udp delete start\n");
     while (flag < 1) {
-        for (int i = 0; i < 65535; i++) {
+        for (i = 0; i < 65535; i++) {
             pthread_mutex_lock(&hash_mutex);
             if (TCAP_hash[i].first != NULL) {
                 struct timeval end;

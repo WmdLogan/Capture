@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/filesort.dir/file_sort.c.o  -o filesort  -lpcap -lccl -lpthread 

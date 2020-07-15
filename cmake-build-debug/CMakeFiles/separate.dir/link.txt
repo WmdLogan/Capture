@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/separate.dir/separate_check.c.o CMakeFiles/separate.dir/Configure.c.o  -o separate  -lpcap -lccl -lpthread 

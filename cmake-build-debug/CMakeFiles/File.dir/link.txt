@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/file.dir/read_dir.c.o  -o file  -lpcap -lccl -lpthread 
